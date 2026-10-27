@@ -17,7 +17,7 @@ export default function InquirySentPage() {
     <>
       <Seo path={path} title={SEO[path].title} description={SEO[path].description} noindex />
       <Header logo="none" showContactBox={false} />
-      <main>
+      <Box component="main" sx={layout.main}>
         <Box component="h1" sx={visuallyHidden}>
           {content.hiddenHeadings.inquirySent}
         </Box>
@@ -42,7 +42,7 @@ export default function InquirySentPage() {
             </Box>
           }
         />
-      </main>
+      </Box>
       <Footer showContactBar={false} />
     </>
   )

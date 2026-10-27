@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { Box } from '@mui/material'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import content from '@/content/content'
 import ContactPage from '@/pages/ContactPage'
@@ -22,7 +23,9 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <Routes>
+      {/* Stránka minimálně na výšku okna, patička vždy dole */}
+      <Box sx={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+        <Routes>
         <Route path={paths.home} element={<HomePage />} />
         {content.services.map((service) => (
           <Route key={service.path} path={service.path} element={<ServicePage service={service} />} />
@@ -31,7 +34,8 @@ export default function App() {
         <Route path={paths.inquirySent} element={<InquirySentPage />} />
         <Route path={paths.contact} element={<ContactPage />} />
         <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+        </Routes>
+      </Box>
     </BrowserRouter>
   )
 }

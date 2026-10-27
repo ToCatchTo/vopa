@@ -2,6 +2,8 @@ import { fluid } from '@/utils/fluid'
 
 // Rozměry rozložení z návrhu (desktop 1920px)
 export const layout = {
+  // Hlavní obsah roztažený mezi hlavičku a patičku
+  main: { flexGrow: 1, display: 'flex', flexDirection: 'column' } as const,
   // Boční okraj stránky (logo, patička)
   pageGutter: { xs: '20px', md: fluid(11, 140) },
   // Levý sloupec obsahu v levé polovině

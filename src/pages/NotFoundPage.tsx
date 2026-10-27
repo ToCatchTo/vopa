@@ -16,7 +16,7 @@ export default function NotFoundPage() {
     <>
       <Seo path={pathname} title={notFound.title} description={notFound.text} noindex />
       <Header showContactBox={false} />
-      <Box component="main" sx={{ ...layout.leftColumn, pt: { xs: '40px', md: fluid(260, 399) }, minHeight: { md: fluid(700, 1079) } }}>
+      <Box component="main" sx={{ ...layout.leftColumn, flexGrow: 1, pt: { xs: '40px', md: fluid(260, 399) }, minHeight: { md: fluid(700, 1079) } }}>
         <Box component="h1" sx={{ ...text.serifHeading, m: 0 }}>
           {notFound.title}
         </Box>

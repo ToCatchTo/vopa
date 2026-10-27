@@ -16,8 +16,12 @@ const logoStyles = {
   small: { width: fluid(96, 170), mt: { xs: '16px', md: fluid(60, 126) } },
 }
 
-// Hlavička: logo, kontaktní box a menu (na desktopu přes obsah stránky)
+// Hlavička: logo se posouvá s obsahem, kontaktní box a menu jsou fixně nahoře
 export default function Header({ logo = 'small', showContactBox = true }: HeaderProps) {
+  // Výška fixního bloku na mobilu (místo v toku stránky)
+  const stackHeight = showContactBox
+    ? `calc(${fluid(84, 135)} + ${fluid(16, 30)} + ${fluid(60, 88)})`
+    : `calc(${fluid(16, 79)} + ${fluid(60, 88)})`
   return (
     <Box
       component="header"
@@ -27,27 +31,26 @@ export default function Header({ logo = 'small', showContactBox = true }: Header
         left: 0,
         right: 0,
         zIndex: 20,
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        alignItems: { xs: 'stretch', md: 'flex-start' },
-        justifyContent: 'space-between',
         px: layout.pageGutter,
         pointerEvents: { md: 'none' },
         '& > *': { pointerEvents: 'auto' },
       }}
     >
-      {logo !== 'none' ? (
-        <Logo sx={{ ...logoStyles[logo], display: { xs: 'none', md: 'block' } }} />
-      ) : (
-        <Box />
-      )}
-      <Box sx={{ width: { xs: '100%', md: fluid(300, 536) } }}>
+      <Box sx={{ height: stackHeight, display: { md: 'none' } }} />
+      {logo !== 'none' && <Logo sx={logoStyles[logo]} />}
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: { xs: '20px', md: 'auto' },
+          right: layout.pageGutter,
+          width: { md: fluid(300, 536) },
+          zIndex: 30,
+        }}
+      >
         {showContactBox && <ContactBox />}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '16px', mt: showContactBox ? fluid(16, 30) : fluid(16, 79) }}>
-          {logo !== 'none' && <Logo sx={{ ...logoStyles[logo], mt: 0, display: { xs: 'block', md: 'none' }, flexShrink: 0 }} />}
-          <Box sx={{ flex: 1, minWidth: 0 }}>
-            <MenuDropdown />
-          </Box>
+        <Box sx={{ mt: showContactBox ? fluid(16, 30) : fluid(16, 79) }}>
+          <MenuDropdown />
         </Box>
       </Box>
     </Box>

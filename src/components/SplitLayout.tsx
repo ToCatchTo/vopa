@@ -17,7 +17,7 @@ interface SplitLayoutProps {
 export default function SplitLayout({ left, right, leftBackground = 'light', sx, leftSx, rightSx }: SplitLayoutProps) {
   const isLight = leftBackground === 'light'
   return (
-    <Grid container sx={{ position: 'relative', ...sx } as SxProps<Theme>}>
+    <Grid container sx={{ position: 'relative', flexGrow: 1, ...sx } as SxProps<Theme>}>
       <Grid
         size={{ xs: 12, md: 6 }}
         sx={{ position: 'relative', bgcolor: isLight ? colors.lightGreen : colors.white, ...leftSx } as SxProps<Theme>}

@@ -19,7 +19,7 @@ export default function InquiryPage() {
     <>
       <Seo path={path} title={SEO[path].title} description={SEO[path].description} />
       <Header showContactBox={false} />
-      <main>
+      <Box component="main" sx={layout.main}>
         <Box component="h1" sx={visuallyHidden}>
           {content.hiddenHeadings.inquiry}
         </Box>
@@ -48,7 +48,7 @@ export default function InquiryPage() {
             </Box>
           }
         />
-      </main>
+      </Box>
       <Footer />
     </>
   )

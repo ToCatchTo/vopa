@@ -25,7 +25,7 @@ export default function ServicePage({ service }: ServicePageProps) {
       <Seo path={service.path} title={seo.title} description={seo.description} />
       <JsonLd data={serviceJsonLd(service.title, seo.description, service.path)} />
       <Header />
-      <main>
+      <Box component="main" sx={layout.main}>
         <SplitLayout
           leftBackground={{ image: service.heroImage }}
           sx={{ minHeight: { md: fluid(1500, 2354) } }}
@@ -58,7 +58,7 @@ export default function ServicePage({ service }: ServicePageProps) {
             </Box>
           }
         />
-      </main>
+      </Box>
       <Footer />
     </>
   )

@@ -21,7 +21,7 @@ export default function ContactPage() {
       <Seo path={path} title={SEO[path].title} description={SEO[path].description} />
       <JsonLd data={localBusinessJsonLd()} />
       <Header />
-      <main>
+      <Box component="main" sx={layout.main}>
         <Box component="h1" sx={visuallyHidden}>
           {content.hiddenHeadings.contact}
         </Box>
@@ -45,7 +45,7 @@ export default function ContactPage() {
             </Box>
           }
         />
-      </main>
+      </Box>
       <Footer showContactBar={false} />
     </>
   )

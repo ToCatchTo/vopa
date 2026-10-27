@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import CompanyIntro from '@/components/CompanyIntro'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
@@ -8,6 +9,7 @@ import ServicesOverview from '@/components/ServicesOverview'
 import SplitLayout from '@/components/SplitLayout'
 import content from '@/content/content'
 import { SEO, localBusinessJsonLd } from '@/seo'
+import { layout } from '@/theme/layout'
 import { fluid } from '@/utils/fluid'
 
 // Domovská stránka
@@ -18,7 +20,7 @@ export default function HomePage() {
       <Seo path={path} description={SEO[path].description} />
       <JsonLd data={localBusinessJsonLd()} />
       <Header logo="large" />
-      <main>
+      <Box component="main" sx={layout.main}>
         <HomeHero />
         <SplitLayout
           left={<CompanyIntro />}
@@ -26,7 +28,7 @@ export default function HomePage() {
           sx={{ minHeight: { md: fluid(900, 1373) } }}
           rightSx={{ pb: { xs: fluid(56, 0), md: 0 } }}
         />
-      </main>
+      </Box>
       <Footer />
     </>
   )
