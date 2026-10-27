@@ -39,5 +39,5 @@ export const inlineLink: SxProps<Theme> = {
   textDecoration: 'underline',
   textUnderlineOffset: '2px',
   transition: 'filter 0.2s ease-out',
-  '&:hover': { filter: 'brightness(0.6)' },
+  '&:hover': { filter: 'brightness(0.75)' },
 }

@@ -106,8 +106,7 @@ export default function MenuDropdown() {
                   lineHeight: fluid(40, 47),
                   color: colors.green,
                   textDecoration: 'none',
-                  ...hoverDarken,
-                  '&.active': {
+                  '&:hover, &.active': {
                     fontWeight: 700,
                     textDecoration: 'underline',
                     textUnderlineOffset: '3px',

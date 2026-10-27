@@ -3,7 +3,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import content from '@/content/content'
 import CtaBox from '@/components/CtaBox'
 import { useInView } from '@/hooks/useInView'
-import { popIn } from '@/theme/interactions'
+import { spinIn } from '@/theme/interactions'
 import { layout } from '@/theme/layout'
 import { inlineLink, text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
@@ -24,7 +24,7 @@ export default function ServicesOverview() {
         {services.items.map((item, i) => (
           <Box component="li" key={item.path} sx={{ display: 'flex', gap: fluid(14, 21), pt: fluid(16, 20), minHeight: { md: fluid(60, 86) } }}>
             <Box sx={{ width: '36px', flexShrink: 0, display: 'flex', justifyContent: 'center', pt: '4px' }}>
-              <Box component="img" src={item.icon} alt="" sx={{ maxWidth: '36px', height: 'auto', ...popIn(i * 0.12, inView) }} />
+              <Box component="img" src={item.icon} alt="" sx={{ maxWidth: '36px', height: 'auto', ...spinIn(i * 0.12, inView) }} />
             </Box>
             <Box component="p" sx={{ ...text.body, m: 0 }}>
               <strong>{item.name}</strong> – {item.description} →{' '}
