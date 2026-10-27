@@ -7,7 +7,7 @@ import Seo from '@/components/Seo'
 import SplitLayout from '@/components/SplitLayout'
 import content from '@/content/content'
 import { SEO } from '@/seo'
-import { layout } from '@/theme/layout'
+import { designWidthQuery, layout } from '@/theme/layout'
 import { text, visuallyHidden } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
 
@@ -30,7 +30,7 @@ export default function InquiryPage() {
               <Box component="p" sx={{ ...text.serifHeading, m: 0 }}>
                 <MultiLine text={inquiry.lead} />
               </Box>
-              <Box component="p" sx={{ ...text.lead, m: 0, mt: fluid(20, 39), width: { md: 'max-content' } }}>
+              <Box component="p" sx={{ ...text.lead, m: 0, mt: fluid(20, 39), [designWidthQuery]: { width: 'max-content' } }}>
                 <MultiLine text={inquiry.text} />
               </Box>
             </Box>

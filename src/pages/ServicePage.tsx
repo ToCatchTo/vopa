@@ -53,7 +53,7 @@ export default function ServicePage({ service }: ServicePageProps) {
               <CtaBox
                 title={service.cta.title}
                 text={service.cta.text}
-                sx={{ mt: fluid(48, 106), ml: { xs: 0, md: fluid(-69, 0) }, width: { md: fluid(350, 674) }, maxWidth: 'none' }}
+                sx={{ mt: fluid(48, 106), ml: { xs: 0, md: fluid(-69, 0) }, width: { md: `min(${fluid(350, 674)}, calc(50vw - ${fluid(0, 146)} - ${fluid(-69, 0)} - ${fluid(11, 140)}))` }, maxWidth: 'none' }}
               />
             </Box>
           }

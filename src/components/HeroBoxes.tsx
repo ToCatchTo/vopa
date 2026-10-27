@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import MultiLine from '@/components/MultiLine'
 import type { SxProps, Theme } from '@mui/material/styles'
 import { fadeUp } from '@/theme/interactions'
+import { designWidthQuery } from '@/theme/layout'
 import { colors, greenOverlay } from '@/theme/theme'
 import { text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
@@ -25,7 +26,8 @@ const variants = {
   service: {
     title: text.serviceTitle,
     titleBox: { pt: fluid(16, 55), pb: 0, minWidth: { md: fluid(227, 536) } },
-    textBox: { pt: fluid(12, 33), pb: fluid(20, 53) },
+    // Box smí přesahovat do pravé poloviny jen o kousek
+    textBox: { pt: fluid(12, 33), pb: fluid(20, 53), maxWidth: { md: `calc(50vw - ${fluid(11, 278)} + ${fluid(0, 52)})` } },
   },
 }
 
@@ -45,7 +47,7 @@ export default function HeroBoxes({ title, description, variant, animated = fals
           ))}
         </Box>
       </Box>
-      <Box sx={{ ...boxBase, ...v.textBox, width: { md: 'max-content' } }}>
+      <Box sx={{ ...boxBase, ...v.textBox, [designWidthQuery]: { width: 'max-content', maxWidth: 'none' } } as SxProps<Theme>}>
         <Box component="p" sx={{ ...text.heroText, m: 0 }}>
           <MultiLine text={description} />
         </Box>

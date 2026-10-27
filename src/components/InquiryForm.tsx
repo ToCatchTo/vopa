@@ -72,7 +72,7 @@ export default function InquiryForm() {
       </Box>
       <Grid container columnSpacing={fluid(12, 24)} rowSpacing={fluid(12, 23)} sx={{ mt: fluid(20, 33) }}>
         {fieldConfig.map((field) => (
-          <Grid key={field.name} size={{ xs: 12, sm: 6 }}>
+          <Grid key={field.name} size={{ xs: 12, sm: 6, md: 12, lg: 6 }}>
             <Box component="label" htmlFor={`inquiry-${field.name}`} sx={visuallyHidden}>
               {form.fields[field.name]}
             </Box>

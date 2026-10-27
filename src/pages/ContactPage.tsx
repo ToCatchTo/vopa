@@ -35,7 +35,7 @@ export default function ContactPage() {
               <CtaBox
                 title={contactPage.cta.title}
                 text={contactPage.cta.text}
-                sx={{ mt: fluid(32, 72), ml: { xs: '20px', md: fluid(0, 209) }, maxWidth: { xs: 'calc(100% - 40px)', md: fluid(350, 674) } }}
+                sx={{ mt: fluid(32, 72), ml: { xs: '20px', md: fluid(0, 209) }, maxWidth: { xs: 'calc(100% - 40px)', md: `min(${fluid(350, 674)}, calc(100% - ${fluid(0, 209)} - 24px))` } }}
               />
             </Box>
           }

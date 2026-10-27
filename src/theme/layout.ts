@@ -1,6 +1,9 @@
 import { fluid } from '@/utils/fluid'
 
 // Rozměry rozložení z návrhu (desktop 1920px)
+// Šířka, od které se drží zalomení řádků přesně podle návrhu
+export const designWidthQuery = '@media (min-width: 1800px)'
+
 export const layout = {
   // Hlavní obsah roztažený mezi hlavičku a patičku
   main: { flexGrow: 1, display: 'flex', flexDirection: 'column' } as const,

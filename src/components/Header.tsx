@@ -44,7 +44,8 @@ export default function Header({ logo = 'small', showContactBox = true }: Header
           top: 0,
           left: { xs: '20px', md: 'auto' },
           right: layout.pageGutter,
-          width: { md: fluid(300, 536) },
+          // Šířka podle obsahu boxu, aby se text i tlačítko vešly na všech desktopech
+          width: { md: fluid(352, 540) },
           zIndex: 30,
         }}
       >

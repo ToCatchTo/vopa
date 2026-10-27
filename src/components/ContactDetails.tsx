@@ -24,9 +24,9 @@ export default function ContactDetails() {
           {contact.email}
         </Box>
       </Box>
-      <Grid container columnSpacing={fluid(16, 18)} rowSpacing={fluid(24, 0)} sx={{ mt: fluid(40, 105) }}>
+      <Grid container columnSpacing={fluid(16, 18)} rowSpacing={{ xs: '24px', lg: 0 }} sx={{ mt: fluid(40, 105) }}>
         {[contactPage.billing, contactPage.premises].map((block, i) => (
-          <Grid key={block.title} size={{ xs: 12, sm: i === 0 ? 7 : 5 }} sx={fadeUp(0.45 + i * 0.12)}>
+          <Grid key={block.title} size={{ xs: 12, sm: i === 0 ? 7 : 5, md: 12, lg: i === 0 ? 7 : 5 }} sx={fadeUp(0.45 + i * 0.12)}>
             <Box component="h2" sx={{ ...text.heading, m: 0 }}>
               {block.title}
             </Box>
