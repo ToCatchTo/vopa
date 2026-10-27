@@ -2,6 +2,7 @@ import { Box } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
 import { Link as RouterLink } from 'react-router-dom'
 import { colors } from '@/theme/theme'
+import { hoverDarken } from '@/theme/interactions'
 import { text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
 
@@ -30,10 +31,7 @@ export default function PillButton({ label, to, type = 'button', variant = 'whit
     textDecoration: 'none',
     whiteSpace: 'nowrap',
     cursor: 'pointer',
-    transition: 'background-color 0.2s, color 0.2s',
-    '&:hover': {
-      bgcolor: isWhite ? colors.lightGreen : colors.darkGreen,
-    },
+    ...hoverDarken,
     '&:focus-visible': {
       outline: `3px solid ${isWhite ? colors.white : colors.green}`,
       outlineOffset: '3px',

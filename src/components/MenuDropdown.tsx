@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react'
 import { Box } from '@mui/material'
 import { NavLink, useLocation } from 'react-router-dom'
 import content from '@/content/content'
+import { hoverDarken } from '@/theme/interactions'
 import { colors } from '@/theme/theme'
 import { text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
@@ -41,8 +42,7 @@ export default function MenuDropdown() {
           left: 0,
           right: 0,
           zIndex: 10,
-          bgcolor: open ? 'rgba(240, 247, 243, 0.85)' : colors.lightGreen,
-          backdropFilter: open ? 'blur(30px)' : 'none',
+          bgcolor: colors.lightGreen,
           borderRadius: fluid(24, 31),
           boxShadow: `0 3px 6px ${colors.shadow}`,
           overflow: 'hidden',
@@ -70,6 +70,7 @@ export default function MenuDropdown() {
             color: colors.green,
             cursor: 'pointer',
             textAlign: 'left',
+            ...hoverDarken,
           }}
         >
           <Box component="span" sx={{ fontSize: fluid(15, 24), whiteSpace: 'nowrap', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
@@ -105,7 +106,8 @@ export default function MenuDropdown() {
                   lineHeight: fluid(40, 47),
                   color: colors.green,
                   textDecoration: 'none',
-                  '&:hover, &.active': {
+                  ...hoverDarken,
+                  '&.active': {
                     fontWeight: 700,
                     textDecoration: 'underline',
                     textUnderlineOffset: '3px',

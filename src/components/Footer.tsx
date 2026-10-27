@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import content from '@/content/content'
+import { hoverContactLink, hoverDarken } from '@/theme/interactions'
 import { layout } from '@/theme/layout'
 import { colors } from '@/theme/theme'
 import { text } from '@/theme/textStyles'
@@ -37,10 +38,10 @@ export default function Footer({ showContactBar = true }: FooterProps) {
             ))}
           </Box>
           <Box component="address" sx={{ ...text.bodyLarge, fontWeight: 700, fontStyle: 'normal', textAlign: { md: 'right' } }}>
-            <Box component="a" href={contact.phoneHref} sx={{ display: 'block', color: 'inherit', textDecoration: 'none' }}>
+            <Box component="a" href={contact.phoneHref} sx={{ display: 'block', ...hoverContactLink }}>
               {contact.phone}
             </Box>
-            <Box component="a" href={contact.emailHref} sx={{ display: 'block', color: 'inherit', textDecoration: 'none' }}>
+            <Box component="a" href={contact.emailHref} sx={{ display: 'block', ...hoverContactLink }}>
               {contact.email}
             </Box>
           </Box>
@@ -69,7 +70,7 @@ export default function Footer({ showContactBar = true }: FooterProps) {
           target="_blank"
           rel="noopener"
           aria-label={footer.madeByAria}
-          sx={{ display: 'flex', alignItems: 'flex-end', gap: '9px', mr: { md: '10px' } }}
+          sx={{ display: 'flex', alignItems: 'flex-end', gap: '9px', mr: { md: '10px' }, ...hoverDarken }}
         >
           <Box component="img" src="/icons/footer_matfix_logo.svg" alt="" sx={{ width: '57.6px', height: '15px' }} />
           <Box component="img" src="/icons/footer_matfix_link_icon.svg" alt="" sx={{ width: '19.5px', height: '20px' }} />

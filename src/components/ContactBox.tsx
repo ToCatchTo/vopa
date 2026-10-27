@@ -1,7 +1,7 @@
 import { Box } from '@mui/material'
 import content from '@/content/content'
 import PillButton from '@/components/PillButton'
-import { colors, greenOverlay } from '@/theme/theme'
+import { colors } from '@/theme/theme'
 import { text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
 
@@ -17,7 +17,7 @@ export default function ContactBox() {
         height: fluid(84, 135),
         pl: fluid(20, 45),
         pr: fluid(16, 44),
-        bgcolor: greenOverlay,
+        bgcolor: colors.green,
         borderRadius: `0 0 ${fluid(30, 50)} ${fluid(30, 50)}`,
       }}
     >

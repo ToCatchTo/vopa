@@ -1,6 +1,6 @@
 import type { SxProps, Theme } from '@mui/material/styles'
 import { fluid } from '@/utils/fluid'
-import { colors, fonts } from '@/theme/theme'
+import { fonts } from '@/theme/theme'
 
 // Vizuálně skrytý prvek dostupný pro čtečky a roboty
 export const visuallyHidden: SxProps<Theme> = {
@@ -38,5 +38,6 @@ export const inlineLink: SxProps<Theme> = {
   color: 'inherit',
   textDecoration: 'underline',
   textUnderlineOffset: '2px',
-  '&:hover': { color: colors.green },
+  transition: 'filter 0.2s ease-out',
+  '&:hover': { filter: 'brightness(0.6)' },
 }

@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import MultiLine from '@/components/MultiLine'
 import type { SxProps, Theme } from '@mui/material/styles'
+import { fadeUp } from '@/theme/interactions'
 import { colors, greenOverlay } from '@/theme/theme'
 import { text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
@@ -10,6 +11,7 @@ interface HeroBoxesProps {
   title: string[]
   description: string
   variant: 'home' | 'service'
+  animated?: boolean
   sx?: SxProps<Theme>
 }
 
@@ -28,12 +30,12 @@ const variants = {
 }
 
 // Zelené boxy s nadpisem a popisem v úvodu stránky
-export default function HeroBoxes({ title, description, variant, sx }: HeroBoxesProps) {
+export default function HeroBoxes({ title, description, variant, animated = false, sx }: HeroBoxesProps) {
   const v = variants[variant]
   const boxBase = { bgcolor: greenOverlay, color: colors.white, px: fluid(20, 64) }
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ...sx } as SxProps<Theme>}>
-      <Box sx={{ ...boxBase, ...v.titleBox, maxWidth: '100%' }}>
+      <Box sx={{ ...boxBase, ...v.titleBox, maxWidth: '100%', ...(animated ? fadeUp(0.15) : {}) } as SxProps<Theme>}>
         <Box component="h1" sx={{ ...v.title, m: 0 }}>
           {title.map((line, i) => (
             <Box component="span" key={line} sx={{ display: { md: 'block' } }}>
@@ -43,7 +45,7 @@ export default function HeroBoxes({ title, description, variant, sx }: HeroBoxes
           ))}
         </Box>
       </Box>
-      <Box sx={{ ...boxBase, ...v.textBox, width: { md: 'max-content' } }}>
+      <Box sx={{ ...boxBase, ...v.textBox, width: { md: 'max-content' }, ...(animated ? fadeUp(0.4) : {}) } as SxProps<Theme>}>
         <Box component="p" sx={{ ...text.heroText, m: 0 }}>
           <MultiLine text={description} />
         </Box>

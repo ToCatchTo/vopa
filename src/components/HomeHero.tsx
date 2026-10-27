@@ -38,6 +38,7 @@ export default function HomeHero() {
       />
       <HeroBoxes
         variant="home"
+        animated
         title={home.heroTitle}
         description={home.heroText}
         sx={{ position: 'relative', ml: layout.leftColumn.ml, mr: { xs: '20px', md: 0 } }}

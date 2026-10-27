@@ -5,6 +5,7 @@ import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import content from '@/content/content'
 import PillButton from '@/components/PillButton'
 import { colors } from '@/theme/theme'
+import { hoverDarken } from '@/theme/interactions'
 import { inlineLink, text, visuallyHidden } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
 
@@ -107,7 +108,7 @@ export default function InquiryForm() {
         <Grid size={12}>
           <Box
             component="label"
-            sx={{ ...inputSx, display: 'flex', alignItems: 'center', gap: '16px', px: fluid(14, 21), cursor: 'pointer' } as SxProps<Theme>}
+            sx={{ ...inputSx, display: 'flex', alignItems: 'center', gap: '16px', px: fluid(14, 21), cursor: 'pointer', ...hoverDarken } as SxProps<Theme>}
           >
             <Box component="input" type="file" name="attachment" onChange={onFileChange} sx={visuallyHidden} />
             <Box
@@ -152,6 +153,7 @@ export default function InquiryForm() {
             borderRadius: '50%',
             bgcolor: colors.lightGreen,
             cursor: 'pointer',
+            ...hoverDarken,
             '&:checked': { background: `radial-gradient(circle, ${colors.green} 0 7px, ${colors.lightGreen} 8px)` },
             '&:focus-visible': { outline: `2px solid ${colors.green}`, outlineOffset: '2px' },
           }}
