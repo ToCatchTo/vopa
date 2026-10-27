@@ -34,8 +34,8 @@ export default function HeroBoxes({ title, description, variant, animated = fals
   const v = variants[variant]
   const boxBase = { bgcolor: greenOverlay, color: colors.white, px: fluid(20, 64) }
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ...sx } as SxProps<Theme>}>
-      <Box sx={{ ...boxBase, ...v.titleBox, maxWidth: '100%', ...(animated ? fadeUp(0.15) : {}) } as SxProps<Theme>}>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', ...(animated ? fadeUp(0.15) : {}), ...sx } as SxProps<Theme>}>
+      <Box sx={{ ...boxBase, ...v.titleBox, maxWidth: '100%' }}>
         <Box component="h1" sx={{ ...v.title, m: 0 }}>
           {title.map((line, i) => (
             <Box component="span" key={line} sx={{ display: { md: 'block' } }}>
@@ -45,7 +45,7 @@ export default function HeroBoxes({ title, description, variant, animated = fals
           ))}
         </Box>
       </Box>
-      <Box sx={{ ...boxBase, ...v.textBox, width: { md: 'max-content' }, ...(animated ? fadeUp(0.4) : {}) } as SxProps<Theme>}>
+      <Box sx={{ ...boxBase, ...v.textBox, width: { md: 'max-content' } }}>
         <Box component="p" sx={{ ...text.heroText, m: 0 }}>
           <MultiLine text={description} />
         </Box>
