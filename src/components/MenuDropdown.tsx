@@ -34,7 +34,7 @@ export default function MenuDropdown() {
   }, [open])
 
   return (
-    <Box ref={rootRef} component="nav" sx={{ position: 'relative', height: fluid(60, 88) }}>
+    <Box ref={rootRef} component="nav" sx={{ position: 'relative', height: fluid(65, 88) }}>
       <Box
         sx={{
           position: 'absolute',
@@ -43,7 +43,7 @@ export default function MenuDropdown() {
           right: 0,
           zIndex: 10,
           bgcolor: colors.lightGreen,
-          borderRadius: fluid(24, 31),
+          borderRadius: fluid(15, 31),
           boxShadow: `0 3px 6px ${colors.shadow}`,
           overflow: 'hidden',
         }}
@@ -62,9 +62,9 @@ export default function MenuDropdown() {
             justifyContent: 'space-between',
             gap: '8px',
             width: '100%',
-            height: fluid(60, 88),
-            pl: fluid(20, 44),
-            pr: fluid(14, 44),
+            height: fluid(65, 88),
+            pl: fluid(27, 44),
+            pr: fluid(26, 44),
             border: 0,
             bgcolor: 'transparent',
             color: colors.green,
@@ -73,7 +73,7 @@ export default function MenuDropdown() {
             ...hoverDarken,
           }}
         >
-          <Box component="span" sx={{ fontSize: fluid(15, 24), whiteSpace: 'nowrap', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+          <Box component="span" sx={{ fontSize: fluid(18, 24), whiteSpace: 'nowrap', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
             {content.menu.label}
           </Box>
           <Box
@@ -81,8 +81,8 @@ export default function MenuDropdown() {
             src="/icons/menu_toggle_icon.svg"
             alt=""
             sx={{
-              width: fluid(36, 50),
-              height: fluid(36, 50),
+              width: fluid(30, 50),
+              height: fluid(30, 50),
               flexShrink: 0,
               transform: open ? 'rotate(180deg)' : 'none',
               transition: 'transform 0.3s ease-out',
@@ -93,7 +93,7 @@ export default function MenuDropdown() {
           component="ul"
           id={listId}
           hidden={!open}
-          sx={{ listStyle: 'none', m: 0, pt: fluid(0, 4), pb: fluid(20, 46), pl: fluid(36, 82), pr: fluid(20, 44) }}
+          sx={{ listStyle: 'none', m: 0, pt: fluid(0, 4), pb: fluid(20, 46), pl: fluid(27, 82), pr: fluid(26, 44) }}
         >
           {content.menu.items.map((item) => (
             <Box component="li" key={item.path}>

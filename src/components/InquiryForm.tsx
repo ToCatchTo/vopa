@@ -11,14 +11,14 @@ import { fluid } from '@/utils/fluid'
 
 type FieldName = keyof typeof content.inquiry.form.fields
 
-// Pole formuláře v pořadí podle návrhu
-const fieldConfig: { name: FieldName; type: string; required: boolean; autoComplete?: string }[] = [
-  { name: 'name', type: 'text', required: true, autoComplete: 'name' },
-  { name: 'company', type: 'text', required: false, autoComplete: 'organization' },
-  { name: 'phone', type: 'tel', required: true, autoComplete: 'tel' },
-  { name: 'location', type: 'text', required: true, autoComplete: 'address-level2' },
-  { name: 'email', type: 'email', required: true, autoComplete: 'email' },
-  { name: 'frequency', type: 'text', required: false },
+// Pole formuláře v pořadí podle mobilního návrhu; twoColumnOrder určuje pořadí ve dvou sloupcích
+const fieldConfig: { name: FieldName; type: string; required: boolean; autoComplete?: string; twoColumnOrder: number }[] = [
+  { name: 'name', type: 'text', required: true, autoComplete: 'name', twoColumnOrder: 1 },
+  { name: 'company', type: 'text', required: false, autoComplete: 'organization', twoColumnOrder: 2 },
+  { name: 'phone', type: 'tel', required: true, autoComplete: 'tel', twoColumnOrder: 3 },
+  { name: 'email', type: 'email', required: true, autoComplete: 'email', twoColumnOrder: 5 },
+  { name: 'location', type: 'text', required: true, autoComplete: 'address-level2', twoColumnOrder: 4 },
+  { name: 'frequency', type: 'text', required: false, twoColumnOrder: 6 },
 ]
 
 const emptyValues: Record<FieldName, string> = {
@@ -35,8 +35,8 @@ const emptyValues: Record<FieldName, string> = {
 const inputSx: SxProps<Theme> = {
   ...text.input,
   width: '100%',
-  height: fluid(52, 59),
-  px: fluid(20, 35),
+  height: '59px',
+  px: fluid(32, 35),
   border: 0,
   borderRadius: '30px',
   bgcolor: colors.lightGreen,
@@ -67,12 +67,12 @@ export default function InquiryForm() {
 
   return (
     <Box component="form" onSubmit={onSubmit} aria-labelledby="inquiry-form-title">
-      <Box component="h2" id="inquiry-form-title" sx={{ ...text.heading, m: 0, color: colors.green, textAlign: 'center' }}>
+      <Box component="h2" id="inquiry-form-title" sx={{ ...text.heading, fontSize: '24px', lineHeight: '31px', m: 0, color: colors.green, textAlign: 'center' }}>
         {form.title}
       </Box>
       <Grid container columnSpacing={fluid(12, 24)} rowSpacing={fluid(12, 23)} sx={{ mt: fluid(20, 33) }}>
         {fieldConfig.map((field) => (
-          <Grid key={field.name} size={{ xs: 12, sm: 6, md: 12, lg: 6 }}>
+          <Grid key={field.name} size={{ xs: 12, sm: 6, md: 12, lg: 6 }} sx={{ order: { xs: 0, sm: field.twoColumnOrder, md: 0, lg: field.twoColumnOrder } }}>
             <Box component="label" htmlFor={`inquiry-${field.name}`} sx={visuallyHidden}>
               {form.fields[field.name]}
             </Box>
@@ -90,7 +90,7 @@ export default function InquiryForm() {
             />
           </Grid>
         ))}
-        <Grid size={12}>
+        <Grid size={12} sx={{ order: { xs: 0, sm: 7, md: 0, lg: 7 } }}>
           <Box component="label" htmlFor="inquiry-description" sx={visuallyHidden}>
             {form.fields.description}
           </Box>
@@ -102,10 +102,10 @@ export default function InquiryForm() {
             placeholder={form.fields.description}
             value={values.description}
             onChange={onChange}
-            sx={{ ...inputSx, display: 'block', height: fluid(140, 165), pt: fluid(16, 20), resize: 'vertical' } as SxProps<Theme>}
+            sx={{ ...inputSx, display: 'block', height: fluid(348, 165), pt: '20px', resize: 'vertical' } as SxProps<Theme>}
           />
         </Grid>
-        <Grid size={12}>
+        <Grid size={12} sx={{ order: { xs: 0, sm: 8, md: 0, lg: 8 }, mt: { xs: '18px', md: 0 } }}>
           <Box
             component="label"
             sx={{ ...inputSx, display: 'flex', alignItems: 'center', gap: '16px', px: fluid(14, 21), cursor: 'pointer', ...hoverDarken } as SxProps<Theme>}
@@ -135,7 +135,7 @@ export default function InquiryForm() {
       </Grid>
       <Box
         component="label"
-        sx={{ ...text.small, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '11px', mt: fluid(20, 34), cursor: 'pointer' }}
+        sx={{ ...text.small, display: 'flex', alignItems: 'center', justifyContent: { xs: 'flex-start', md: 'center' }, gap: '11px', mt: fluid(30, 34), cursor: 'pointer' }}
       >
         <Box
           component="input"
@@ -160,18 +160,14 @@ export default function InquiryForm() {
         />
         <span>
           {form.consent.before}
-          <Box component={RouterLink} to={content.paths.terms} sx={inlineLink}>
-            {form.consent.termsLink}
-          </Box>
-          {form.consent.middle}
           <Box component={RouterLink} to={content.paths.privacy} sx={inlineLink}>
             {form.consent.privacyLink}
           </Box>
           {form.consent.after}
         </span>
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: fluid(20, 23) }}>
-        <PillButton label={form.submit} type="submit" variant="green" />
+      <Box sx={{ display: 'flex', justifyContent: 'center', mt: { xs: '70px', md: fluid(20, 23) } }}>
+        <PillButton label={form.submit} type="submit" variant="green" sx={{ width: { xs: '265px', md: 'auto' } }} />
       </Box>
     </Box>
   )

@@ -11,6 +11,7 @@ import { SEO, localBusinessJsonLd } from '@/seo'
 import { layout } from '@/theme/layout'
 import { text, visuallyHidden } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
+import { nbsp } from '@/utils/typography'
 
 // Kontaktní stránka
 export default function ContactPage() {
@@ -28,20 +29,27 @@ export default function ContactPage() {
         <SplitLayout
           sx={{ minHeight: { md: fluid(800, 1079) } }}
           left={
-            <Box sx={{ pt: { xs: '32px', md: fluid(260, 399) }, pb: { xs: '40px', md: 0 } }}>
-              <Box component="p" sx={{ ...layout.leftColumn, ...text.serifHeading, m: 0 }}>
-                {contactPage.lead}
+            <Box sx={{ pt: { xs: '307px', md: fluid(260, 399) }, pb: { xs: '65px', md: 0 } }}>
+              <Box component="p" sx={{ ...layout.leftColumn, ...text.serifLead, m: 0 }}>
+                {nbsp(contactPage.lead)}
               </Box>
               <CtaBox
                 title={contactPage.cta.title}
                 text={contactPage.cta.text}
-                sx={{ mt: fluid(32, 72), ml: { xs: '20px', md: fluid(0, 209) }, maxWidth: { xs: 'calc(100% - 40px)', md: `min(${fluid(350, 674)}, calc(100% - ${fluid(0, 209)} - 24px))` } }}
+                sx={{
+                  display: { xs: 'none', md: 'flex' },
+                  mt: fluid(32, 72),
+                  ml: fluid(0, 209),
+                  maxWidth: `min(${fluid(350, 674)}, calc(100% - ${fluid(0, 209)} - 24px))`,
+                }}
               />
             </Box>
           }
           right={
-            <Box sx={{ ...layout.rightColumn, pt: { xs: '40px', md: fluid(260, 444) }, pb: { xs: '48px', md: 0 } }}>
+            <Box sx={{ ...layout.rightColumn, pt: { xs: '57px', md: fluid(260, 444) }, pb: { xs: '122px', md: 0 } }}>
               <ContactDetails />
+              {/* Na mobilu je výzva až pod kontaktními údaji */}
+              <CtaBox title={contactPage.cta.title} text={contactPage.cta.text} sx={{ display: { xs: 'flex', md: 'none' }, mt: '75px' }} />
             </Box>
           }
         />

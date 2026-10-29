@@ -23,13 +23,13 @@ export default function CtaBox({ title, text: description, sx }: CtaBoxProps) {
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-        maxWidth: fluid(350, 674),
-        minHeight: fluid(0, 304),
-        pt: fluid(28, 41),
-        pb: fluid(28, 51),
-        px: fluid(20, 40),
+        maxWidth: fluid(322, 674),
+        minHeight: fluid(280, 304),
+        pt: fluid(22, 41),
+        pb: fluid(32, 51),
+        px: fluid(18, 40),
         bgcolor: colors.green,
-        borderRadius: fluid(32, 51),
+        borderRadius: '51px',
         color: colors.white,
         textAlign: 'center',
         ...sx,
@@ -38,11 +38,16 @@ export default function CtaBox({ title, text: description, sx }: CtaBoxProps) {
       <Box component="h2" sx={{ ...text.ctaTitle, m: 0 }}>
         <MultiLine text={title} />
       </Box>
-      <Box component="p" sx={{ ...text.bodyMedium, m: 0, mt: fluid(8, 6), maxWidth: fluid(300, 484) }}>
+      <Box component="p" sx={{ ...text.bodyMedium, m: 0, mt: fluid(10, 6), maxWidth: fluid(285, 484) }}>
         <MultiLine text={description} />
       </Box>
-      <Box sx={{ flexGrow: 1, minHeight: fluid(20, 24) }} />
-      <PillButton label={content.ctaButton} to={content.paths.inquiry} />
+      <Box sx={{ flexGrow: 1, minHeight: fluid(22, 24) }} />
+      {/* Na mobilu se text tlačítka zalamuje do dvou řádků */}
+      <PillButton
+        label={content.ctaButton}
+        to={content.paths.inquiry}
+        sx={{ width: { xs: '265px', sm: 'auto' }, maxWidth: '100%', whiteSpace: { xs: 'normal', sm: 'nowrap' }, lineHeight: { xs: '20px', sm: text.button.lineHeight } }}
+      />
     </Box>
   )
 }

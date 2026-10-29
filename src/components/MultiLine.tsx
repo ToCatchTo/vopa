@@ -1,6 +1,7 @@
 import { Fragment } from 'react'
 import { Box } from '@mui/material'
 import { designWidthQuery } from '@/theme/layout'
+import { nbsp } from '@/utils/typography'
 
 interface MultiLineProps {
   text: string
@@ -19,7 +20,7 @@ export default function MultiLine({ text }: MultiLineProps) {
               <Box component="br" sx={{ display: 'none', [designWidthQuery]: { display: 'inline' } }} />
             </>
           )}
-          {line}
+          {nbsp(line)}
         </Fragment>
       ))}
     </>

@@ -8,19 +8,26 @@ interface SplitLayoutProps {
   right: ReactNode
   // Pozadí levé poloviny: světle zelená nebo zesvětlená fotka
   leftBackground?: 'light' | { image: string }
+  // Na mobilu zobrazit pravou polovinu jako první
+  reverseOnMobile?: boolean
   sx?: SxProps<Theme>
   leftSx?: SxProps<Theme>
   rightSx?: SxProps<Theme>
 }
 
 // Rozložení na dvě poloviny (levá s pozadím, pravá bílá)
-export default function SplitLayout({ left, right, leftBackground = 'light', sx, leftSx, rightSx }: SplitLayoutProps) {
+export default function SplitLayout({ left, right, leftBackground = 'light', reverseOnMobile = false, sx, leftSx, rightSx }: SplitLayoutProps) {
   const isLight = leftBackground === 'light'
   return (
     <Grid container sx={{ position: 'relative', flexGrow: 1, ...sx } as SxProps<Theme>}>
       <Grid
         size={{ xs: 12, md: 6 }}
-        sx={{ position: 'relative', bgcolor: isLight ? colors.lightGreen : colors.white, ...leftSx } as SxProps<Theme>}
+        sx={{
+          position: 'relative',
+          order: reverseOnMobile ? { xs: 2, md: 0 } : 0,
+          bgcolor: isLight ? colors.lightGreen : colors.white,
+          ...leftSx,
+        } as SxProps<Theme>}
       >
         {!isLight && (
           <Box
@@ -31,7 +38,7 @@ export default function SplitLayout({ left, right, leftBackground = 'light', sx,
               backgroundImage: `url(${leftBackground.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              opacity: 0.25,
+              opacity: { xs: 0.4, md: 0.25 },
             }}
           />
         )}

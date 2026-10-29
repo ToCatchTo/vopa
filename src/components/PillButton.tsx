@@ -22,7 +22,7 @@ export default function PillButton({ label, to, type = 'button', variant = 'whit
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    height: fluid(52, 70),
+    height: fluid(60, 70),
     px: fluid(22, 32),
     border: 0,
     borderRadius: '48px',

@@ -25,8 +25,9 @@ export default function HomePage() {
         <SplitLayout
           left={<CompanyIntro />}
           right={<ServicesOverview />}
+          reverseOnMobile
           sx={{ minHeight: { md: fluid(900, 1373) } }}
-          rightSx={{ pb: { xs: fluid(56, 0), md: 0 } }}
+          rightSx={{ pb: { xs: '64px', md: 0 } }}
         />
       </Box>
       <Footer />

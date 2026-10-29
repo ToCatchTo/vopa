@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import type { SxProps, Theme } from '@mui/material/styles'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import Logo from '@/components/Logo'
@@ -9,6 +10,16 @@ import { SEO } from '@/seo'
 import { layout } from '@/theme/layout'
 import { text, visuallyHidden } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
+import { nbsp } from '@/utils/typography'
+
+// Text poděkování (na mobilu ve světlé části, na desktopu vpravo)
+function SentMessage({ sx }: { sx: SxProps<Theme> }) {
+  return (
+    <Box component="p" sx={{ ...text.serifLead, m: 0, ...sx } as SxProps<Theme>}>
+      {nbsp(content.inquirySent.message)}
+    </Box>
+  )
+}
 
 // Potvrzení odeslané poptávky
 export default function InquirySentPage() {
@@ -24,19 +35,18 @@ export default function InquirySentPage() {
         <SplitLayout
           sx={{ minHeight: { md: fluid(800, 1079) } }}
           left={
-            <Box sx={{ pt: { xs: '32px', md: fluid(240, 347) }, pb: { xs: '32px', md: 0 } }}>
-              <Logo sx={{ width: fluid(200, 398), ml: { xs: 'auto', md: fluid(0, 416) }, mr: { xs: 'auto', md: 0 } }} />
+            <Box sx={{ pt: { xs: '379px', md: fluid(240, 347) }, pb: { xs: '94px', md: 0 } }}>
+              <Logo sx={{ display: { xs: 'none', md: 'block' }, width: fluid(200, 398), ml: fluid(0, 416) }} />
+              <SentMessage sx={{ ...layout.leftColumn, display: { xs: 'block', md: 'none' } }} />
             </Box>
           }
           right={
-            <Box sx={{ ...layout.rightNarrowColumn, pt: { xs: '40px', md: fluid(260, 375) }, pb: { xs: '56px', md: 0 } }}>
-              <Box component="p" sx={{ ...text.serifHeading, m: 0 }}>
-                {content.inquirySent.message}
-              </Box>
-              <Box component="p" sx={{ ...text.personName, m: 0, mt: fluid(32, 60) }}>
+            <Box sx={{ ...layout.rightNarrowColumn, pt: { xs: '48px', md: fluid(260, 375) }, pb: { xs: '56px', md: 0 } }}>
+              <SentMessage sx={{ display: { xs: 'none', md: 'block' } }} />
+              <Box component="p" sx={{ ...text.personName, m: 0, mt: { md: fluid(32, 60) } }}>
                 {content.contact.person}
               </Box>
-              <Box component="p" sx={{ ...text.bodyLarge, m: 0, mt: fluid(2, 5) }}>
+              <Box component="p" sx={{ ...text.bodyLarge, m: 0, mt: fluid(1, 5) }}>
                 {content.brand.legalName}
               </Box>
             </Box>

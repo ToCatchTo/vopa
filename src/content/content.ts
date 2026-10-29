@@ -356,6 +356,11 @@ const content = {
 
   // Počet fotek ve sloupci na stránce služby
   servicePhotoCount: 3,
+  // Ovládání fotogalerie služby na mobilu
+  carousel: {
+    prevAria: 'Předchozí fotografie',
+    nextAria: 'Další fotografie',
+  },
 
   contactPage: {
     lead: 'Rádi s vámi probereme vaše požadavky. Zavolejte nám, napište e-mail nebo využijte poptávkový formulář.',
@@ -396,9 +401,7 @@ const content = {
       },
       fileButton: 'Vybrat soubor',
       consent: {
-        before: 'Souhlasím s ',
-        termsLink: 'obchodními podmínkami',
-        middle: ' a zpracováním ',
+        before: 'Souhlasím se zpracováním ',
         privacyLink: 'osobních údajů',
         after: '.',
       },
@@ -419,6 +422,7 @@ const content = {
   footer: {
     lines: ['Rádi s vámi probereme vaše požadavky.', 'Staráme se o zeleň v Pardubicích a Pardubickém kraji.'],
     madeBy: 'tvoříme weby s radostí',
+    madeByMobile: 'copyright 2025, vytvoříme web i vám',
     madeByUrl: 'https://www.matfix.cz',
     madeByAria: 'Matfix – tvorba webů',
   },

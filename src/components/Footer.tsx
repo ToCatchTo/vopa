@@ -5,6 +5,7 @@ import { layout } from '@/theme/layout'
 import { colors } from '@/theme/theme'
 import { text } from '@/theme/textStyles'
 import { fluid } from '@/utils/fluid'
+import { nbsp } from '@/utils/typography'
 
 interface FooterProps {
   showContactBar?: boolean
@@ -21,19 +22,19 @@ export default function Footer({ showContactBar = true }: FooterProps) {
             display: 'flex',
             flexDirection: { xs: 'column', md: 'row' },
             justifyContent: 'space-between',
-            gap: { xs: '16px', md: '24px' },
-            minHeight: fluid(0, 136),
+            gap: { xs: '30px', md: '24px' },
+            minHeight: { md: fluid(0, 136) },
             px: layout.pageGutter,
-            pt: fluid(24, 34),
-            pb: fluid(24, 34),
+            pt: fluid(32, 34),
+            pb: '34px',
             bgcolor: colors.green,
             color: colors.white,
           }}
         >
-          <Box component="p" sx={{ ...text.bodyLarge, m: 0 }}>
+          <Box component="p" sx={{ ...text.footerText, m: 0 }}>
             {footer.lines.map((line) => (
               <Box component="span" key={line} sx={{ display: 'block' }}>
-                {line}
+                {nbsp(line)}
               </Box>
             ))}
           </Box>
@@ -53,15 +54,20 @@ export default function Footer({ showContactBar = true }: FooterProps) {
           alignItems: 'center',
           justifyContent: 'space-between',
           height: '50px',
-          px: layout.pageGutter,
+          px: { xs: '18px', md: layout.pageGutter.md },
           bgcolor: colors.black,
           color: colors.white,
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: '8px', md: '12px' } }}>
           <Box component="img" src="/icons/footer_copyright_icon.svg" alt="" sx={{ width: '20px', height: '20px' }} />
           <Box component="span" sx={{ fontFamily: '"Albula Pro", "DM Sans", sans-serif', fontSize: '10px', lineHeight: '10px' }}>
-            {footer.madeBy}
+            <Box component="span" sx={{ display: { xs: 'inline', md: 'none' } }}>
+              {footer.madeByMobile}
+            </Box>
+            <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>
+              {footer.madeBy}
+            </Box>
           </Box>
         </Box>
         <Box

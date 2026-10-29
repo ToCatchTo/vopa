@@ -2,7 +2,7 @@ import { Box } from '@mui/material'
 import ContactBox from '@/components/ContactBox'
 import Logo from '@/components/Logo'
 import MenuDropdown from '@/components/MenuDropdown'
-import { layout } from '@/theme/layout'
+import { layout, mobileGutter } from '@/theme/layout'
 import { fluid } from '@/utils/fluid'
 
 interface HeaderProps {
@@ -12,45 +12,41 @@ interface HeaderProps {
 
 // Rozměry a pozice loga podle varianty
 const logoStyles = {
-  large: { width: fluid(96, 260), mt: { xs: '16px', md: fluid(40, 83) } },
-  small: { width: fluid(96, 170), mt: { xs: '16px', md: fluid(60, 126) } },
+  large: { width: fluid(96, 260), mt: fluid(40, 83) },
+  small: { width: fluid(96, 170), mt: fluid(60, 126) },
 }
 
 // Hlavička: logo se posouvá s obsahem, kontaktní box a menu jsou fixně nahoře
+// Na mobilu je logo součástí kontaktního boxu, který se zobrazuje vždy
 export default function Header({ logo = 'small', showContactBox = true }: HeaderProps) {
-  // Výška fixního bloku na mobilu (místo v toku stránky)
-  const stackHeight = showContactBox
-    ? `calc(${fluid(84, 135)} + ${fluid(16, 30)} + ${fluid(60, 88)})`
-    : `calc(${fluid(16, 79)} + ${fluid(60, 88)})`
   return (
     <Box
       component="header"
       sx={{
-        position: { xs: 'relative', md: 'absolute' },
+        position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         zIndex: 20,
         px: layout.pageGutter,
-        pointerEvents: { md: 'none' },
+        pointerEvents: 'none',
         '& > *': { pointerEvents: 'auto' },
       }}
     >
-      <Box sx={{ height: stackHeight, display: { md: 'none' } }} />
-      {logo !== 'none' && <Logo sx={logoStyles[logo]} />}
+      {logo !== 'none' && <Logo sx={{ ...logoStyles[logo], display: { xs: 'none', md: 'block' } }} />}
       <Box
         sx={{
           position: 'fixed',
           top: 0,
-          left: { xs: '20px', md: 'auto' },
+          left: { xs: mobileGutter, md: 'auto' },
           right: layout.pageGutter,
           // Šířka podle obsahu boxu, aby se text i tlačítko vešly na všech desktopech
           width: { md: fluid(352, 540) },
           zIndex: 30,
         }}
       >
-        {showContactBox && <ContactBox />}
-        <Box sx={{ mt: showContactBox ? fluid(16, 30) : fluid(16, 79) }}>
+        <ContactBox sx={{ display: showContactBox ? 'flex' : { xs: 'flex', md: 'none' } }} />
+        <Box sx={{ mt: showContactBox ? fluid(18, 30) : { xs: '18px', md: fluid(18, 79) } }}>
           <MenuDropdown />
         </Box>
       </Box>
