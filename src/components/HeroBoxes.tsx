@@ -17,6 +17,9 @@ interface HeroBoxesProps {
   sx?: SxProps<Theme>
 }
 
+// Šířka popisu služby: k polovině obrazovky plus přesah do pravé poloviny
+const serviceBoxWidth = `calc(50vw - ${fluid(11, 278)} + ${fluid(30, 52)})`
+
 // Rozměry boxů podle varianty
 const variants = {
   home: {
@@ -28,8 +31,8 @@ const variants = {
   service: {
     title: text.serviceTitle,
     titleBox: { pt: fluid(12, 55), pb: 0, minWidth: { md: fluid(227, 536) } },
-    // Box vždy o kousek přesahuje do pravé poloviny
-    textBox: { pt: fluid(16, 33), pb: fluid(30, 53), maxWidth: { md: `calc(50vw - ${fluid(11, 278)} + ${fluid(30, 52)})` } },
+    // Box vždy o kousek přesahuje do pravé poloviny (i na širokých obrazovkách)
+    textBox: { pt: fluid(16, 33), pb: fluid(30, 53), minWidth: { md: serviceBoxWidth }, maxWidth: { md: serviceBoxWidth } },
   },
 }
 
