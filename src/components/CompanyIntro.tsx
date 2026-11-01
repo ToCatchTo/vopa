@@ -10,7 +10,7 @@ import { nbsp } from '@/utils/typography'
 export default function CompanyIntro() {
   const { intro } = content.home
   return (
-    <Box component="section" sx={{ ...layout.leftColumn, pt: fluid(80, 200), pb: { xs: '146px', md: 0 } }}>
+    <Box component="section" sx={{ ...layout.homeLeftColumn, pt: fluid(80, 200), pb: { xs: '146px', md: fluid(60, 196) } }}>
       <Box component="h2" sx={{ ...text.serifHeading, m: 0, textAlign: 'center' }}>
         {intro.title}
       </Box>

@@ -22,13 +22,14 @@ const variants = {
   home: {
     title: text.heroTitle,
     titleBox: { pt: fluid(12, 26), pb: fluid(8, 20) },
-    textBox: { pt: fluid(0, 6), pb: fluid(30, 48) },
+    // Perex nesmí sahat až k okraji obrazovky
+    textBox: { pt: fluid(0, 6), pb: fluid(30, 48), maxWidth: { md: fluid(420, 760) } },
   },
   service: {
     title: text.serviceTitle,
     titleBox: { pt: fluid(12, 55), pb: 0, minWidth: { md: fluid(227, 536) } },
-    // Box smí přesahovat do pravé poloviny jen o kousek
-    textBox: { pt: fluid(16, 33), pb: fluid(30, 53), maxWidth: { md: `calc(50vw - ${fluid(11, 278)} + ${fluid(0, 52)})` } },
+    // Box vždy o kousek přesahuje do pravé poloviny
+    textBox: { pt: fluid(16, 33), pb: fluid(30, 53), maxWidth: { md: `calc(50vw - ${fluid(11, 278)} + ${fluid(30, 52)})` } },
   },
 }
 

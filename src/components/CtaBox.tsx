@@ -42,11 +42,11 @@ export default function CtaBox({ title, text: description, sx }: CtaBoxProps) {
         <MultiLine text={description} />
       </Box>
       <Box sx={{ flexGrow: 1, minHeight: fluid(22, 24) }} />
-      {/* Na mobilu se text tlačítka zalamuje do dvou řádků */}
+      {/* Text tlačítka se zalomí do dvou řádků, když se nevejde (vždy na mobilu) */}
       <PillButton
         label={content.ctaButton}
         to={content.paths.inquiry}
-        sx={{ width: { xs: '265px', sm: 'auto' }, maxWidth: '100%', whiteSpace: { xs: 'normal', sm: 'nowrap' }, lineHeight: { xs: '20px', sm: text.button.lineHeight } }}
+        sx={{ width: { xs: '265px', sm: 'auto' }, maxWidth: '100%', whiteSpace: 'normal', textAlign: 'center', lineHeight: { xs: '20px', sm: 1.15 } }}
       />
     </Box>
   )

@@ -14,7 +14,7 @@ export default function ServicesOverview() {
   const { services, cta } = content.home
   const { ref, inView } = useInView<HTMLUListElement>()
   return (
-    <Box component="section" sx={{ ...layout.rightColumn, pt: fluid(47, 200) }}>
+    <Box component="section" sx={{ ...layout.homeRightColumn, pt: fluid(47, 200), pb: { md: fluid(60, 100) } }}>
       <Box component="h2" sx={{ ...text.serifHeading, m: 0, textAlign: 'center' }}>
         {services.title}
       </Box>

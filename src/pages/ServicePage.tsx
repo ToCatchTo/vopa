@@ -36,7 +36,7 @@ export default function ServicePage({ service }: ServicePageProps) {
                 variant="service"
                 title={[service.title]}
                 description={service.intro}
-                sx={{ ml: layout.leftColumn.ml, mr: { xs: mobileGutter, md: 0 }, position: 'relative', zIndex: 1 }}
+                sx={{ ml: layout.leftColumn.ml, mr: { xs: mobileGutter, md: `calc(-1 * ${fluid(30, 52)})` }, position: 'relative', zIndex: 1 }}
               />
               <PhotoColumn
                 src={service.photo}
@@ -47,7 +47,7 @@ export default function ServicePage({ service }: ServicePageProps) {
             </Box>
           }
           right={
-            <Box sx={{ ...layout.rightNarrowColumn, pt: { xs: '80px', md: fluid(350, 544) }, pb: { xs: '101px', md: 0 } }}>
+            <Box sx={{ ...layout.rightNarrowColumn, pt: { xs: '80px', md: fluid(350, 544) }, pb: { xs: '101px', md: fluid(60, 100) } }}>
               <Box sx={{ minHeight: { md: fluid(450, 650) } }}>
                 <ServiceDetail sections={service.sections} />
               </Box>
@@ -60,7 +60,7 @@ export default function ServicePage({ service }: ServicePageProps) {
               <CtaBox
                 title={service.cta.title}
                 text={service.cta.text}
-                sx={{ mt: { xs: '102px', md: fluid(48, 106) }, ml: { xs: 0, md: fluid(-69, 0) }, width: { md: `min(${fluid(350, 674)}, calc(50vw - ${fluid(0, 146)} - ${fluid(-69, 0)} - ${fluid(11, 140)}))` }, maxWidth: 'none' }}
+                sx={{ mt: { xs: '102px', md: fluid(48, 106) }, width: { md: `min(${fluid(322, 674)}, calc(50vw - ${fluid(0, 146)} - ${fluid(11, 140)}))` }, maxWidth: 'none' }}
               />
             </Box>
           }

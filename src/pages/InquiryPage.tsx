@@ -49,7 +49,7 @@ export default function InquiryPage() {
                 ml: { xs: mobileGutter, md: fluid(0, 74) },
                 width: { xs: `calc(100% - 2 * ${mobileGutter})`, md: fluid(233, 674) },
                 pt: { xs: '40px', md: fluid(200, 286) },
-                pb: { xs: '53px', md: 0 },
+                pb: { xs: '53px', md: fluid(60, 80) },
               }}
             >
               <InquiryForm />
