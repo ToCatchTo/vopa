@@ -38,10 +38,12 @@ export default function CtaBox({ title, text: description, sx }: CtaBoxProps) {
       <Box component="h2" sx={{ ...text.ctaTitle, m: 0 }}>
         <MultiLine text={title} />
       </Box>
-      <Box component="p" sx={{ ...text.bodyMedium, fontWeight: 400, m: 0, mt: fluid(10, 6), maxWidth: fluid(285, 484) }}>
-        <MultiLine text={description} />
+      {/* Text je svisle uprostřed mezi nadpisem a tlačítkem */}
+      <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', py: '14px' }}>
+        <Box component="p" sx={{ ...text.bodyMedium, fontWeight: 300, m: 0, maxWidth: fluid(285, 484) }}>
+          <MultiLine text={description} />
+        </Box>
       </Box>
-      <Box sx={{ flexGrow: 1, minHeight: fluid(22, 24) }} />
       {/* Text tlačítka se zalomí do dvou řádků, když se nevejde (vždy na mobilu) */}
       <PillButton
         label={content.ctaButton}
