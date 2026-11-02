@@ -38,7 +38,7 @@ export default function CtaBox({ title, text: description, sx }: CtaBoxProps) {
       <Box component="h2" sx={{ ...text.ctaTitle, m: 0 }}>
         <MultiLine text={title} />
       </Box>
-      <Box component="p" sx={{ ...text.bodyMedium, m: 0, mt: fluid(10, 6), maxWidth: fluid(285, 484) }}>
+      <Box component="p" sx={{ ...text.bodyMedium, fontWeight: 400, m: 0, mt: fluid(10, 6), maxWidth: fluid(285, 484) }}>
         <MultiLine text={description} />
       </Box>
       <Box sx={{ flexGrow: 1, minHeight: fluid(22, 24) }} />
