@@ -26,7 +26,7 @@ export const text = {
   heroText: { fontFamily: fonts.sans, fontWeight: 400, fontSize: fluid(16, 30), lineHeight: fluid(21, 39) },
   heading: { fontFamily: fonts.sans, fontWeight: 700, fontSize: fluid(18, 24), lineHeight: fluid(24, 31) },
   bodyLarge: { fontFamily: fonts.sans, fontWeight: 400, fontSize: fluid(18, 24), lineHeight: fluid(24, 31) },
-  footerText: { fontFamily: fonts.sans, fontWeight: 400, fontSize: fluid(16, 24), lineHeight: fluid(21, 31) },
+  footerText: { fontFamily: fonts.sans, fontWeight: 300, fontSize: fluid(16, 24), lineHeight: fluid(21, 31) },
   lead: { fontFamily: fonts.sans, fontWeight: 400, fontSize: fluid(14, 22), lineHeight: fluid(18, 29) },
   body: { fontFamily: fonts.sans, fontWeight: 400, fontSize: fluid(16, 18), lineHeight: fluid(21, 24) },
   bodyCompact: { fontFamily: fonts.sans, fontWeight: 400, fontSize: fluid(14, 18), lineHeight: fluid(18, 24) },
