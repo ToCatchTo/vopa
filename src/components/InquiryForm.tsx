@@ -3,6 +3,7 @@ import { Box, Grid } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import content from '@/content/content'
+import PhotoUpload from '@/components/PhotoUpload'
 import PillButton from '@/components/PillButton'
 import { colors } from '@/theme/theme'
 import { hoverDarken } from '@/theme/interactions'
@@ -51,13 +52,12 @@ export default function InquiryForm() {
   const { form } = content.inquiry
   const navigate = useNavigate()
   const [values, setValues] = useState(emptyValues)
-  const [fileName, setFileName] = useState('')
+  // Zkomprimované fotky připravené k odeslání
+  const [photos, setPhotos] = useState<File[]>([])
   const [consent, setConsent] = useState(false)
 
   const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-
-  const onFileChange = (e: ChangeEvent<HTMLInputElement>) => setFileName(e.target.files?.[0]?.name ?? '')
 
   // Zatím bez odeslání na backend, pouze přesměrování na potvrzení
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -106,31 +106,7 @@ export default function InquiryForm() {
           />
         </Grid>
         <Grid size={12} sx={{ order: { xs: 0, sm: 8, md: 0, lg: 8 }, mt: { xs: '18px', md: 0 } }}>
-          <Box
-            component="label"
-            sx={{ ...inputSx, display: 'flex', alignItems: 'center', gap: '16px', px: fluid(14, 21), cursor: 'pointer', ...hoverDarken } as SxProps<Theme>}
-          >
-            <Box component="input" type="file" name="attachment" onChange={onFileChange} sx={visuallyHidden} />
-            <Box
-              component="span"
-              sx={{
-                ...text.input,
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                flexShrink: 0,
-                width: '139px',
-                height: '34px',
-                border: `1px solid ${colors.grey}`,
-                borderRadius: '30px',
-              }}
-            >
-              {form.fileButton}
-            </Box>
-            <Box component="span" sx={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-              {fileName}
-            </Box>
-          </Box>
+          <PhotoUpload photos={photos} onChange={setPhotos} fieldSx={inputSx} />
         </Grid>
       </Grid>
       <Box

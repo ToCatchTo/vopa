@@ -400,6 +400,12 @@ const content = {
         description: '*Popis požadované služby…',
       },
       fileButton: 'Vybrat soubor',
+      photoUpload: {
+        maxPhotos: 5,
+        label: 'Fotografie',
+        processing: 'Zpracovávám fotku…',
+        removeAria: 'Odebrat fotografii',
+      },
       consent: {
         before: 'Souhlasím se zpracováním ',
         privacyLink: 'osobních údajů',
