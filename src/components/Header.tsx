@@ -8,6 +8,7 @@ import { fluid } from '@/utils/fluid'
 interface HeaderProps {
   logo?: 'large' | 'small' | 'none'
   showContactBox?: boolean
+  logoVariant?: 'green' | 'white'
 }
 
 // Rozměry a pozice loga podle varianty
@@ -18,7 +19,7 @@ const logoStyles = {
 
 // Hlavička: logo se posouvá s obsahem, kontaktní box a menu jsou fixně nahoře
 // Na mobilu je logo součástí kontaktního boxu, který se zobrazuje vždy
-export default function Header({ logo = 'small', showContactBox = true }: HeaderProps) {
+export default function Header({ logo = 'small', showContactBox = true, logoVariant = 'green' }: HeaderProps) {
   return (
     <Box
       component="header"
@@ -33,7 +34,7 @@ export default function Header({ logo = 'small', showContactBox = true }: Header
         '& > *': { pointerEvents: 'auto' },
       }}
     >
-      {logo !== 'none' && <Logo sx={{ ...logoStyles[logo], display: { xs: 'none', md: 'block' } }} />}
+      {logo !== 'none' && <Logo variant={logoVariant} sx={{ ...logoStyles[logo], display: { xs: 'none', md: 'block' } }} />}
       <Box
         sx={{
           position: 'fixed',

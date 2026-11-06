@@ -9,7 +9,7 @@ import PhotoColumn from '@/components/PhotoColumn'
 import Seo from '@/components/Seo'
 import ServiceDetail from '@/components/ServiceDetail'
 import SplitLayout from '@/components/SplitLayout'
-import content, { type ServiceContent } from '@/content/content'
+import type { ServiceContent } from '@/content/content'
 import { SEO, serviceJsonLd, type SeoMeta } from '@/seo'
 import { layout, mobileGutter } from '@/theme/layout'
 import { fluid } from '@/utils/fluid'
@@ -39,9 +39,8 @@ export default function ServicePage({ service }: ServicePageProps) {
                 sx={{ ml: layout.leftColumn.ml, mr: { xs: mobileGutter, md: `calc(-1 * ${fluid(30, 52)})` }, position: 'relative', zIndex: 1 }}
               />
               <PhotoColumn
-                src={service.photo}
+                photos={service.photos}
                 alt={service.photoAlt}
-                count={content.servicePhotoCount}
                 sx={{ ...layout.leftColumn, mt: fluid(32, 98), display: { xs: 'none', md: 'block' } }}
               />
             </Box>
@@ -52,9 +51,8 @@ export default function ServicePage({ service }: ServicePageProps) {
                 <ServiceDetail sections={service.sections} />
               </Box>
               <PhotoCarousel
-                src={service.photo}
+                photos={service.photos}
                 alt={service.photoAlt}
-                count={content.servicePhotoCount}
                 sx={{ display: { xs: 'block', md: 'none' }, mt: '83px', mx: `-${mobileGutter}` }}
               />
               <CtaBox

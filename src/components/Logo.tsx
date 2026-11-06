@@ -7,14 +7,15 @@ import { hoverDarken } from '@/theme/interactions'
 interface LogoProps {
   sx?: SxProps<Theme>
   linked?: boolean
+  variant?: 'green' | 'white'
 }
 
-// Logo firmy, volitelně jako odkaz na úvod
-export default function Logo({ sx, linked = true }: LogoProps) {
+// Logo firmy, volitelně jako odkaz na úvod; bílá varianta na tmavou fotku
+export default function Logo({ sx, linked = true, variant = 'green' }: LogoProps) {
   const image = (
     <Box
       component="img"
-      src="/icons/logo.svg"
+      src={variant === 'white' ? '/icons/logo_white.svg' : '/icons/logo.svg'}
       alt={content.brand.logoAlt}
       sx={{ display: 'block', width: '100%', height: 'auto' }}
     />

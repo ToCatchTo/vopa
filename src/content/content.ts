@@ -12,7 +12,7 @@ export interface ServiceContent {
   intro: string
   heroImage: string
   heroImageAlt: string
-  photo: string
+  photos: string[]
   photoAlt: string
   sections: ServiceSection[]
   cta: { title: string; text: string }
@@ -148,10 +148,10 @@ const content = {
       title: 'Údržba zeleně',
       intro:
         'Pravidelně udržovaná zeleň reprezentuje\nobec i firmu a ušetří vám náklady na\npozdější nápravu zanedbaných ploch.\nPečujeme o veřejnou zeleň, firemní areály\ni soukromé zahrady v Pardubickém kraji\nuž od roku 1994.',
-      heroImage: '/images/maintenance_hero.webp',
+      heroImage: '/images/home_hero.webp',
       heroImageAlt: 'Sekání trávníku zahradním traktorem',
-      photo: '/images/maintenance_hero.webp',
-      photoAlt: 'Sekání travnaté plochy podél chodníku',
+      photos: ['/images/maintenance_photo_1.webp', '/images/maintenance_photo_2.webp', '/images/maintenance_photo_3.webp'],
+      photoAlt: 'Posečený travnatý svah',
       sections: [
         {
           heading: 'Komunální údržba zeleně\npro obce a města',
@@ -199,8 +199,8 @@ const content = {
       intro:
         'Zdravý trávník a upravené živé ploty vyžadují\npravidelnou a odbornou péči. Zahradní práce\nprovádíme jednorázově i v rámci pravidelného\nservisu na zahradách, firemních pozemcích\ni veřejných plochách.',
       heroImage: '/images/gardening_hero.webp',
-      heroImageAlt: 'Stříhání živého plotu',
-      photo: '/images/gardening_hero.webp',
+      heroImageAlt: 'Sekání trávy zahradním traktorem',
+      photos: ['/images/gardening_photo_1.webp', '/images/gardening_photo_2.webp', '/images/gardening_photo_3.webp'],
       photoAlt: 'Zahradní práce na živém plotu',
       sections: [
         {
@@ -241,7 +241,7 @@ const content = {
         'Kácení stromů v Pardubicích a okolí.\nNemocný, poškozený nebo nevhodně rostoucí\nstrom ohrožuje majetek i bezpečnost lidí.\nStromy kácíme a prořezáváme bezpečně,\ns vlastní mechanizací a včetně kompletního\núklidu – od zahrad rodinných domů po\nveřejná prostranství a firemní areály.',
       heroImage: '/images/tree_felling_hero.webp',
       heroImageAlt: 'Arborista při prořezávání stromu',
-      photo: '/images/tree_felling_photo.webp',
+      photos: ['/images/tree_felling_photo_1.webp', '/images/tree_felling_photo_2.webp', '/images/tree_felling_photo_3.webp'],
       photoAlt: 'Prořez stromu z pracovní plošiny',
       sections: [
         {
@@ -289,8 +289,8 @@ const content = {
       intro:
         'Terénní úpravy zahrad a pozemků v Pardubicích.\nKvalitní trávník i záhon začíná správně\npřipraveným terénem. Pozemek vyrovnáme,\npřipravíme plochy pro výsadbu a navezeme\npotřebnou zeminu nebo substrát –\nu novostaveb, při rekonstrukci zahrady\ni na firemních a veřejných plochách.',
       heroImage: '/images/groundwork_hero.webp',
-      heroImageAlt: 'Bagr při terénních úpravách',
-      photo: '/images/groundwork_hero.webp',
+      heroImageAlt: 'Sklápěč s navezenou zeminou',
+      photos: ['/images/groundwork_photo_1.webp', '/images/groundwork_photo_2.webp', '/images/groundwork_photo_3.webp'],
       photoAlt: 'Terénní úpravy pozemku mechanizací',
       sections: [
         {
@@ -324,9 +324,9 @@ const content = {
       intro:
         'Odvoz odpadu, údržba hřišť a palivové dřevo.\nNaše služby doplňujeme o práce, které s péčí\no zeleň a pozemky přímo souvisejí. Díky tomu\nvám zajistíme vše potřebné od jednoho\ndodavatele.',
       heroImage: '/images/other_services_hero.webp',
-      heroImageAlt: 'Řezání dřeva motorovou pilou',
-      photo: '/images/other_services_photo.webp',
-      photoAlt: 'Naskládané palivové dřevo',
+      heroImageAlt: 'Vysypávání mulčovací kůry ze sklápěče',
+      photos: ['/images/other_services_photo_1.webp', '/images/other_services_photo_2.webp', '/images/other_services_photo_3.webp'],
+      photoAlt: 'Úklid listí v parku',
       sections: [
         {
           heading: 'Odvoz a likvidace vzniklého odpadu',
@@ -354,8 +354,6 @@ const content = {
     },
   ] satisfies ServiceContent[],
 
-  // Počet fotek ve sloupci na stránce služby
-  servicePhotoCount: 3,
   // Ovládání fotogalerie služby na mobilu
   carousel: {
     prevAria: 'Předchozí fotografie',

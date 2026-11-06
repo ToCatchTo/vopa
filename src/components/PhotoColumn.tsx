@@ -3,19 +3,18 @@ import type { SxProps, Theme } from '@mui/material/styles'
 import { fluid } from '@/utils/fluid'
 
 interface PhotoColumnProps {
-  src: string
+  photos: string[]
   alt: string
-  count: number
   sx?: SxProps<Theme>
 }
 
 // Sloupec fotografií pod úvodem stránky služby
-export default function PhotoColumn({ src, alt, count, sx }: PhotoColumnProps) {
+export default function PhotoColumn({ photos, alt, sx }: PhotoColumnProps) {
   return (
     <Box sx={sx}>
-      {Array.from({ length: count }, (_, i) => (
+      {photos.map((src, i) => (
         <Box
-          key={i}
+          key={src}
           component="img"
           src={src}
           alt={i === 0 ? alt : ''}
@@ -24,6 +23,7 @@ export default function PhotoColumn({ src, alt, count, sx }: PhotoColumnProps) {
           sx={{
             display: 'block',
             width: '100%',
+            // Rámeček fotky v návrhu 536 × 324
             aspectRatio: '536 / 324',
             objectFit: 'cover',
             mt: i === 0 ? 0 : fluid(16, 30),

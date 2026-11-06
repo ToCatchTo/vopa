@@ -19,7 +19,7 @@ export default function HomePage() {
     <>
       <Seo path={path} description={SEO[path].description} />
       <JsonLd data={localBusinessJsonLd()} />
-      <Header logo="large" />
+      <Header logo="large" logoVariant="white" />
       <Box component="main" sx={layout.main}>
         <HomeHero />
         <SplitLayout

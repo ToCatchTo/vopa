@@ -5,15 +5,17 @@ import content from '@/content/content'
 import { hoverDarken } from '@/theme/interactions'
 
 interface PhotoCarouselProps {
-  src: string
+  photos: string[]
   alt: string
-  count: number
   sx?: SxProps<Theme>
 }
 
 // Fotogalerie služby se šipkami (mobilní verze sloupce fotografií), točí se donekonečna
-export default function PhotoCarousel({ src, alt, count, sx }: PhotoCarouselProps) {
-  // Pozice v pásu s kopií poslední fotky na začátku a první na konci
+export default function PhotoCarousel({ photos, alt, sx }: PhotoCarouselProps) {
+  const count = photos.length
+  // Pás s kopií poslední fotky na začátku a první na konci
+  const slides = [photos[count - 1], ...photos, photos[0]]
+  // Aktuální pozice v pásu (1 = první skutečná fotka)
   const [position, setPosition] = useState(1)
   const [animate, setAnimate] = useState(true)
 
@@ -54,7 +56,7 @@ export default function PhotoCarousel({ src, alt, count, sx }: PhotoCarouselProp
             transition: animate ? 'transform 0.4s ease-out' : 'none',
           }}
         >
-          {Array.from({ length: count + 2 }, (_, i) => (
+          {slides.map((src, i) => (
             <Box
               key={i}
               component="img"
