@@ -42,5 +42,6 @@ export const inlineLink: SxProps<Theme> = {
   textDecoration: 'underline',
   textUnderlineOffset: '2px',
   transition: 'filter 0.2s ease-out',
-  '&:hover': { filter: 'brightness(0.75)' },
+  // Tmavě zelený text potřebuje výraznější ztmavení, aby bylo vidět
+  '&:hover': { filter: 'brightness(0.5)' },
 }
