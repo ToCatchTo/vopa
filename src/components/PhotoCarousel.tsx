@@ -3,6 +3,7 @@ import { Box } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
 import content, { type ServicePhoto } from '@/content/content'
 import { hoverDarken } from '@/theme/interactions'
+import { storedPosition } from '@/utils/photoPosition'
 
 interface PhotoCarouselProps {
   photos: ServicePhoto[]
@@ -65,7 +66,7 @@ export default function PhotoCarousel({ photos, alt, sx }: PhotoCarouselProps) {
               loading="lazy"
               decoding="async"
               aria-hidden={i !== position}
-              sx={{ display: 'block', flex: '0 0 100%', width: '100%', aspectRatio: '393 / 240', objectFit: 'cover', objectPosition: photo.position ?? 'center' }}
+              sx={{ display: 'block', flex: '0 0 100%', width: '100%', aspectRatio: '393 / 240', objectFit: 'cover', objectPosition: storedPosition(photo.src, photo.position) }}
             />
           ))}
         </Box>
