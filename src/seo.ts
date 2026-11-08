@@ -64,6 +64,10 @@ export const SEO = {
     title: 'Kontakt',
     description: `Kontakt na VoPa Vondráček, Pardubice: telefon ${content.contact.phone}, e-mail ${content.contact.email}. Fakturační údaje a provozovna Areál UMA Semtín.`,
   },
+  [paths.privacy]: {
+    title: 'Zpracování osobních údajů',
+    description: 'Informace o zpracování osobních údajů společností Vondráček – VoPa s.r.o. při vyřizování dotazů a poptávek z kontaktního formuláře.',
+  },
 } satisfies Record<string, SeoMeta>
 
 // Celý titulek stránky: "Značka – Kontakt"

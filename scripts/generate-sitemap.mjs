@@ -16,6 +16,7 @@ export const STATIC_PATHS = [
   '/dalsi-sluzby',
   '/poptavka',
   '/kontakt',
+  '/ochrana-osobnich-udaju',
 ]
 
 export function buildSitemap({ origin, paths, today }) {

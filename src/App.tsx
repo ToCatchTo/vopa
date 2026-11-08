@@ -7,6 +7,7 @@ import HomePage from '@/pages/HomePage'
 import InquiryPage from '@/pages/InquiryPage'
 import InquirySentPage from '@/pages/InquirySentPage'
 import NotFoundPage from '@/pages/NotFoundPage'
+import PrivacyPage from '@/pages/PrivacyPage'
 import ServicePage from '@/pages/ServicePage'
 
 // Posun na začátek stránky při změně cesty
@@ -33,6 +34,7 @@ export default function App() {
         <Route path={paths.inquiry} element={<InquiryPage />} />
         <Route path={paths.inquirySent} element={<InquirySentPage />} />
         <Route path={paths.contact} element={<ContactPage />} />
+        <Route path={paths.privacy} element={<PrivacyPage />} />
         <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Box>

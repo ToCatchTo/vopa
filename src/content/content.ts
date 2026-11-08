@@ -5,6 +5,14 @@ export interface ServiceSection {
   list?: string[]
 }
 
+// Blok právního textu: odstavec nebo odrážkový seznam
+export type LegalBlock = string | { list: string[] }
+
+export interface LegalSection {
+  heading: string
+  blocks: LegalBlock[]
+}
+
 export interface ServicePhoto {
   src: string
   // Výřez fotky (CSS object-position), výchozí střed
@@ -441,6 +449,106 @@ const content = {
 
   inquirySent: {
     message: 'Děkujeme, vaše poptávka byla úspěšně odeslána. Budeme se jí věnovat co nejdříve a brzy se vám ozveme.',
+  },
+
+  privacy: {
+    title: 'Informace o zpracování osobních údajů',
+    sections: [
+      {
+        heading: 'I. Základní ustanovení',
+        blocks: [
+          'Správcem osobních údajů podle čl. 4 bod 7 nařízení Evropského parlamentu a Rady (EU) 2016/679 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů a o volném pohybu těchto údajů (dále jen: „GDPR“) je Vondráček - VoPa s.r.o., IČ 259 46 242, DIČ CZ25946242, se sídlem Palackého třída 2627, Zelené Předměstí, 530 02 Pardubice, zapsaná v obchodním rejstříku vedeném Krajským soudem v Hradci Králové, oddíl C, vložka 16526 (dále jen: „správce“).',
+          'Kontaktní údaje správce jsou:',
+          { list: [
+            'adresa: Palackého třída 2627, Zelené Předměstí, 530 02 Pardubice',
+            'e-mail: vopa-pce@seznam.cz',
+            'datová schránka: bjsa8fx',
+          ] },
+          'Osobními údaji se rozumí veškeré informace o identifikované nebo identifikovatelné fyzické osobě; identifikovatelnou fyzickou osobou je fyzická osoba, kterou lze přímo či nepřímo identifikovat, zejména odkazem na určitý identifikátor, například jméno, identifikační číslo, lokační údaje, síťový identifikátor nebo na jeden či více zvláštních prvků fyzické, fyziologické, genetické, psychické, ekonomické, kulturní nebo společenské identity této fyzické osoby.',
+          'Správce nejmenoval pověřence pro ochranu osobních údajů.',
+        ],
+      },
+      {
+        heading: 'II. Zdroje a kategorie zpracovávaných osobních údajů',
+        blocks: [
+          'Správce zpracovává osobní údaje, které mu poskytnete prostřednictvím kontaktního formuláře nebo v rámci následné komunikace.',
+          'Zpracovávány mohou být zejména:',
+          { list: [
+            'jméno, příjmení, název firmy nebo organizace;',
+            'e-mailová adresa;',
+            'telefon;',
+            'lokalita a četnost vztahující se k dotazu nebo žádosti;',
+            'nahrané fotografie a soubory prostřednictvím kontaktního formuláře;',
+            'obsah dotazu nebo žádosti;',
+            'osobní údaje obsažené v následné komunikaci;',
+            'IP adresa, datum a čas odeslání formuláře a další technické údaje zaznamenávané za účelem zabezpečení formuláře a ochrany před jeho zneužitím.',
+          ] },
+        ],
+      },
+      {
+        heading: 'III. Právní základ a účel zpracování osobních údajů',
+        blocks: [
+          'Zákonným důvodem zpracování osobních údajů je:',
+          { list: [
+            'oprávněný zájem správce podle čl. 6 odst. 1 písm. f) GDPR, který spočívá v přijímání, vyřizování a zodpovídání dotazů a žádostí zaslaných prostřednictvím kontaktního formuláře a ve vedení související komunikace.',
+          ] },
+          'Účelem zpracování osobních údajů je:',
+          { list: [
+            'vyřízení a zodpovězení dotazu nebo žádosti zaslané prostřednictvím kontaktního formuláře na webových stránkách www.vopa-pce.cz.',
+          ] },
+          'Ze strany správce nedochází k automatickému individuálnímu rozhodování ve smyslu čl. 22 GDPR.',
+          'Poskytnutí osobních údajů prostřednictvím kontaktního formuláře je dobrovolné a není zákonným ani smluvním požadavkem. Bez poskytnutí funkční e-mailové adresy a obsahu dotazu nebo žádosti však správce nebude schopen dotaz nebo žádost vyřídit a odesílateli odpovědět.',
+        ],
+      },
+      {
+        heading: 'IV. Doba uchovávání údajů',
+        blocks: [
+          'Správce uchovává osobní údaje v nezbytném rozsahu po dobu vyřízení dotazu nebo žádosti a následně po dobu 12 měsíců od ukončení komunikace, není-li v konkrétním případě nezbytné jejich delší uchování pro ochranu práv a oprávněných zájmů správce.',
+          'Po uplynutí doby uchovávání osobních údajů správce osobní údaje vymaže.',
+        ],
+      },
+      {
+        heading: 'V. Příjemci osobních údajů (subdodavatelé správce)',
+        blocks: [
+          'K osobním údajům mohou mít v nezbytném rozsahu přístup pověření zaměstnanci správce a dodavatelé zajišťující:',
+          { list: [
+            'vývoj, provoz a správu webových stránek,',
+            'hosting webových stránek a databáze kontaktního formuláře,',
+            'provoz e-mailových a dalších IT služeb,',
+            'zabezpečení formuláře a ochranu proti jeho zneužití.',
+          ] },
+          'Dodavatelé zpracovávají osobní údaje pouze v rozsahu nezbytném pro poskytování příslušných služeb a na základě pokynů správce, pokud nevystupují jako samostatní správci.',
+          'Správce nemá v úmyslu předat osobní údaje do třetí země (do země mimo EU) nebo mezinárodní organizaci. Příjemci osobních údajů ve třetích zemích jsou poskytovatelé mailingových služeb / cloudových služeb.',
+        ],
+      },
+      {
+        heading: 'VI. Vaše práva',
+        blocks: [
+          'Za podmínek stanovených v GDPR máte:',
+          { list: [
+            'právo získat potvrzení, zda správce zpracovává vaše osobní údaje, a právo na přístup k těmto údajům,',
+            'právo na opravu nepřesných nebo neúplných osobních údajů,',
+            'právo na výmaz osobních údajů,',
+            'právo na omezení zpracování,',
+            'právo vznést námitku proti zpracování založenému na oprávněném zájmu správce.',
+          ] },
+          'Máte rovněž právo podat stížnost u Úřadu pro ochranu osobních údajů, Pplk. Sochora 27, 170 00 Praha 7, www.uoou.gov.cz, pokud se domníváte, že zpracováním vašich osobních údajů dochází k porušení GDPR.',
+        ],
+      },
+      {
+        heading: 'VII. Podmínky zabezpečení osobních údajů',
+        blocks: [
+          'Správce přijal přiměřená technická a organizační opatření odpovídající povaze a rozsahu zpracování osobních údajů. Přístup k osobním údajům mají pouze pověřené osoby a příslušní poskytovatelé služeb v rozsahu nezbytném pro plnění jejich úkolů.',
+        ],
+      },
+      {
+        heading: 'VIII. Závěrečná ustanovení',
+        blocks: [
+          'Správce může tyto informace aktualizovat zejména v případě změny způsobu zpracování osobních údajů nebo souvisejících právních předpisů. Aktuální znění je vždy dostupné na webových stránkách www.vopa-pce.cz',
+          'Tyto zásady nabývají účinnosti dnem 1. 9. 2026.',
+        ],
+      },
+    ] satisfies LegalSection[],
   },
 
   notFound: {
