@@ -37,7 +37,8 @@ export default function SplitLayout({ left, right, leftBackground = 'light', rev
               inset: 0,
               backgroundImage: `url(${leftBackground.image})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              // Fotka vždy od horního okraje
+              backgroundPosition: 'center top',
               opacity: { xs: 0.4, md: 0.25 },
             }}
           />
