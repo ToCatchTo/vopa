@@ -256,7 +256,7 @@ const content = {
       heroImage: '/images/tree_felling_hero.webp',
       heroImageAlt: 'Arborista při prořezávání stromu',
       photos: [
-        { src: '/images/tree_felling_photo_1.webp', position: 'center top' },
+        { src: '/images/tree_felling_photo_1.webp', position: '50% 18%' },
         { src: '/images/tree_felling_photo_2.webp', position: 'center top' },
         { src: '/images/tree_felling_photo_3.webp', position: 'center top' },
       ],
