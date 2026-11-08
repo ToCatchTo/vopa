@@ -157,9 +157,9 @@ const content = {
       heroImage: '/images/maintenance_hero.webp',
       heroImageAlt: 'Sekání trávníku zahradním traktorem',
       photos: [
-        { src: '/images/maintenance_photo_1.webp' },
-        { src: '/images/maintenance_photo_2.webp' },
-        { src: '/images/maintenance_photo_3.webp' },
+        { src: '/images/maintenance_photo_1.webp', position: '50% 0%' },
+        { src: '/images/maintenance_photo_2.webp', position: '50% 23%' },
+        { src: '/images/maintenance_photo_3.webp', position: '50% 42%' },
       ],
       photoAlt: 'Posečený travnatý svah',
       sections: [
@@ -211,7 +211,7 @@ const content = {
       heroImage: '/images/gardening_hero.webp',
       heroImageAlt: 'Sekání trávy zahradním traktorem',
       photos: [
-        { src: '/images/gardening_photo_1.webp' },
+        { src: '/images/gardening_photo_1.webp', position: '50% 43%' },
         { src: '/images/gardening_photo_2.webp' },
         { src: '/images/gardening_photo_3.webp' },
       ],
@@ -256,9 +256,9 @@ const content = {
       heroImage: '/images/tree_felling_hero.webp',
       heroImageAlt: 'Arborista při prořezávání stromu',
       photos: [
-        { src: '/images/tree_felling_photo_1.webp', position: '50% 18%' },
-        { src: '/images/tree_felling_photo_2.webp', position: 'center top' },
-        { src: '/images/tree_felling_photo_3.webp', position: 'center top' },
+        { src: '/images/tree_felling_photo_1.webp', position: '50% 14%' },
+        { src: '/images/tree_felling_photo_2.webp', position: '50% 16%' },
+        { src: '/images/tree_felling_photo_3.webp', position: '50% 42%' },
       ],
       photoAlt: 'Prořez stromu z pracovní plošiny',
       sections: [
@@ -310,8 +310,8 @@ const content = {
       heroImageAlt: 'Sklápěč s navezenou zeminou',
       photos: [
         { src: '/images/groundwork_photo_1.webp' },
-        { src: '/images/groundwork_photo_2.webp' },
-        { src: '/images/groundwork_photo_3.webp' },
+        { src: '/images/groundwork_photo_2.webp', position: '50% 45%' },
+        { src: '/images/groundwork_photo_3.webp', position: '50% 43%' },
       ],
       photoAlt: 'Terénní úpravy pozemku mechanizací',
       sections: [
@@ -348,9 +348,9 @@ const content = {
       heroImage: '/images/other_services_hero.webp',
       heroImageAlt: 'Vysypávání mulčovací kůry ze sklápěče',
       photos: [
-        { src: '/images/other_services_photo_1.webp' },
-        { src: '/images/other_services_photo_2.webp' },
-        { src: '/images/other_services_photo_3.webp', position: 'center bottom' },
+        { src: '/images/other_services_photo_1.webp', position: '50% 40%' },
+        { src: '/images/other_services_photo_2.webp', position: '50% 0%' },
+        { src: '/images/other_services_photo_3.webp', position: '50% 74%' },
       ],
       photoAlt: 'Úklid listí v parku',
       sections: [

@@ -48,7 +48,7 @@ function PhotoColumnEditor({ photos, alt, sx }: PhotoColumnProps) {
   const [copied, setCopied] = useState(false)
 
   const copyAll = async () => {
-    const text = photos.map((photo) => `${photo.src}: ${positions[photo.src]}`).join('\n')
+    const text = photos.map((photo) => `${photo.src}: ${positions[photo.src] ?? storedPosition(photo.src, photo.position)}`).join('\n')
     try {
       await navigator.clipboard.writeText(text)
       setCopied(true)
