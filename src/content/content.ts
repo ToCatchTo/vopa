@@ -5,14 +5,22 @@ export interface ServiceSection {
   list?: string[]
 }
 
+export interface ServicePhoto {
+  src: string
+  // Výřez fotky (CSS object-position), výchozí střed
+  position?: string
+}
+
 export interface ServiceContent {
   slug: string
   path: string
   title: string
   intro: string
   heroImage: string
+  // Výřez fotky v pozadí (CSS background-position), výchozí střed
+  heroImagePosition?: string
   heroImageAlt: string
-  photos: string[]
+  photos: ServicePhoto[]
   photoAlt: string
   sections: ServiceSection[]
   cta: { title: string; text: string }
@@ -149,8 +157,14 @@ const content = {
       intro:
         'Pravidelně udržovaná zeleň reprezentuje\nobec i firmu a ušetří vám náklady na\npozdější nápravu zanedbaných ploch.\nPečujeme o veřejnou zeleň, firemní areály\ni soukromé zahrady v Pardubickém kraji\nuž od roku 1994.',
       heroImage: '/images/home_hero.webp',
+      // Muž s ruční sekačkou vpravo
+      heroImagePosition: '80% 35%',
       heroImageAlt: 'Sekání trávníku zahradním traktorem',
-      photos: ['/images/maintenance_photo_1.webp', '/images/maintenance_photo_2.webp', '/images/maintenance_photo_3.webp'],
+      photos: [
+        { src: '/images/maintenance_photo_1.webp' },
+        { src: '/images/maintenance_photo_2.webp' },
+        { src: '/images/maintenance_photo_3.webp' },
+      ],
       photoAlt: 'Posečený travnatý svah',
       sections: [
         {
@@ -200,7 +214,11 @@ const content = {
         'Zdravý trávník a upravené živé ploty vyžadují\npravidelnou a odbornou péči. Zahradní práce\nprovádíme jednorázově i v rámci pravidelného\nservisu na zahradách, firemních pozemcích\ni veřejných plochách.',
       heroImage: '/images/gardening_hero.webp',
       heroImageAlt: 'Sekání trávy zahradním traktorem',
-      photos: ['/images/gardening_photo_1.webp', '/images/gardening_photo_2.webp', '/images/gardening_photo_3.webp'],
+      photos: [
+        { src: '/images/gardening_photo_1.webp' },
+        { src: '/images/gardening_photo_2.webp' },
+        { src: '/images/gardening_photo_3.webp' },
+      ],
       photoAlt: 'Zahradní práce na živém plotu',
       sections: [
         {
@@ -240,8 +258,14 @@ const content = {
       intro:
         'Kácení stromů v Pardubicích a okolí.\nNemocný, poškozený nebo nevhodně rostoucí\nstrom ohrožuje majetek i bezpečnost lidí.\nStromy kácíme a prořezáváme bezpečně,\ns vlastní mechanizací a včetně kompletního\núklidu – od zahrad rodinných domů po\nveřejná prostranství a firemní areály.',
       heroImage: '/images/tree_felling_hero.webp',
+      // Muž kácející strom v koši plošiny
+      heroImagePosition: '45% 60%',
       heroImageAlt: 'Arborista při prořezávání stromu',
-      photos: ['/images/tree_felling_photo_1.webp', '/images/tree_felling_photo_2.webp', '/images/tree_felling_photo_3.webp'],
+      photos: [
+        { src: '/images/tree_felling_photo_1.webp', position: 'center top' },
+        { src: '/images/tree_felling_photo_2.webp', position: 'center top' },
+        { src: '/images/tree_felling_photo_3.webp', position: 'center top' },
+      ],
       photoAlt: 'Prořez stromu z pracovní plošiny',
       sections: [
         {
@@ -289,8 +313,13 @@ const content = {
       intro:
         'Terénní úpravy zahrad a pozemků v Pardubicích.\nKvalitní trávník i záhon začíná správně\npřipraveným terénem. Pozemek vyrovnáme,\npřipravíme plochy pro výsadbu a navezeme\npotřebnou zeminu nebo substrát –\nu novostaveb, při rekonstrukci zahrady\ni na firemních a veřejných plochách.',
       heroImage: '/images/groundwork_hero.webp',
+      heroImagePosition: '15% center',
       heroImageAlt: 'Sklápěč s navezenou zeminou',
-      photos: ['/images/groundwork_photo_1.webp', '/images/groundwork_photo_2.webp', '/images/groundwork_photo_3.webp'],
+      photos: [
+        { src: '/images/groundwork_photo_1.webp' },
+        { src: '/images/groundwork_photo_2.webp' },
+        { src: '/images/groundwork_photo_3.webp' },
+      ],
       photoAlt: 'Terénní úpravy pozemku mechanizací',
       sections: [
         {
@@ -325,7 +354,11 @@ const content = {
         'Odvoz odpadu, údržba hřišť a palivové dřevo.\nNaše služby doplňujeme o práce, které s péčí\no zeleň a pozemky přímo souvisejí. Díky tomu\nvám zajistíme vše potřebné od jednoho\ndodavatele.',
       heroImage: '/images/other_services_hero.webp',
       heroImageAlt: 'Vysypávání mulčovací kůry ze sklápěče',
-      photos: ['/images/other_services_photo_1.webp', '/images/other_services_photo_2.webp', '/images/other_services_photo_3.webp'],
+      photos: [
+        { src: '/images/other_services_photo_1.webp' },
+        { src: '/images/other_services_photo_2.webp' },
+        { src: '/images/other_services_photo_3.webp', position: 'center bottom' },
+      ],
       photoAlt: 'Úklid listí v parku',
       sections: [
         {

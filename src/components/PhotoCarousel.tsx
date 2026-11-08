@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Box } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
-import content from '@/content/content'
+import content, { type ServicePhoto } from '@/content/content'
 import { hoverDarken } from '@/theme/interactions'
 
 interface PhotoCarouselProps {
-  photos: string[]
+  photos: ServicePhoto[]
   alt: string
   sx?: SxProps<Theme>
 }
@@ -56,16 +56,16 @@ export default function PhotoCarousel({ photos, alt, sx }: PhotoCarouselProps) {
             transition: animate ? 'transform 0.4s ease-out' : 'none',
           }}
         >
-          {slides.map((src, i) => (
+          {slides.map((photo, i) => (
             <Box
               key={i}
               component="img"
-              src={src}
+              src={photo.src}
               alt={i === 1 ? alt : ''}
               loading="lazy"
               decoding="async"
               aria-hidden={i !== position}
-              sx={{ display: 'block', flex: '0 0 100%', width: '100%', aspectRatio: '393 / 240', objectFit: 'cover' }}
+              sx={{ display: 'block', flex: '0 0 100%', width: '100%', aspectRatio: '393 / 240', objectFit: 'cover', objectPosition: photo.position ?? 'center' }}
             />
           ))}
         </Box>

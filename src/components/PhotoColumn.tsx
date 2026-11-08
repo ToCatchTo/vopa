@@ -1,9 +1,10 @@
 import { Box } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
 import { fluid } from '@/utils/fluid'
+import type { ServicePhoto } from '@/content/content'
 
 interface PhotoColumnProps {
-  photos: string[]
+  photos: ServicePhoto[]
   alt: string
   sx?: SxProps<Theme>
 }
@@ -12,11 +13,11 @@ interface PhotoColumnProps {
 export default function PhotoColumn({ photos, alt, sx }: PhotoColumnProps) {
   return (
     <Box sx={sx}>
-      {photos.map((src, i) => (
+      {photos.map((photo, i) => (
         <Box
-          key={src}
+          key={photo.src}
           component="img"
-          src={src}
+          src={photo.src}
           alt={i === 0 ? alt : ''}
           loading="lazy"
           decoding="async"
@@ -26,6 +27,7 @@ export default function PhotoColumn({ photos, alt, sx }: PhotoColumnProps) {
             // Rámeček fotky v návrhu 536 × 324
             aspectRatio: '536 / 324',
             objectFit: 'cover',
+            objectPosition: photo.position ?? 'center',
             mt: i === 0 ? 0 : fluid(16, 30),
           }}
         />
