@@ -17,8 +17,6 @@ export interface ServiceContent {
   title: string
   intro: string
   heroImage: string
-  // Výřez fotky v pozadí (CSS background-position), výchozí střed
-  heroImagePosition?: string
   heroImageAlt: string
   photos: ServicePhoto[]
   photoAlt: string
@@ -156,9 +154,7 @@ const content = {
       title: 'Údržba zeleně',
       intro:
         'Pravidelně udržovaná zeleň reprezentuje\nobec i firmu a ušetří vám náklady na\npozdější nápravu zanedbaných ploch.\nPečujeme o veřejnou zeleň, firemní areály\ni soukromé zahrady v Pardubickém kraji\nuž od roku 1994.',
-      heroImage: '/images/home_hero.webp',
-      // Muž s ruční sekačkou vpravo
-      heroImagePosition: '80% 35%',
+      heroImage: '/images/maintenance_hero.webp',
       heroImageAlt: 'Sekání trávníku zahradním traktorem',
       photos: [
         { src: '/images/maintenance_photo_1.webp' },
@@ -258,8 +254,6 @@ const content = {
       intro:
         'Kácení stromů v Pardubicích a okolí.\nNemocný, poškozený nebo nevhodně rostoucí\nstrom ohrožuje majetek i bezpečnost lidí.\nStromy kácíme a prořezáváme bezpečně,\ns vlastní mechanizací a včetně kompletního\núklidu – od zahrad rodinných domů po\nveřejná prostranství a firemní areály.',
       heroImage: '/images/tree_felling_hero.webp',
-      // Muž kácející strom v koši plošiny
-      heroImagePosition: '45% 60%',
       heroImageAlt: 'Arborista při prořezávání stromu',
       photos: [
         { src: '/images/tree_felling_photo_1.webp', position: 'center top' },
@@ -313,7 +307,6 @@ const content = {
       intro:
         'Terénní úpravy zahrad a pozemků v Pardubicích.\nKvalitní trávník i záhon začíná správně\npřipraveným terénem. Pozemek vyrovnáme,\npřipravíme plochy pro výsadbu a navezeme\npotřebnou zeminu nebo substrát –\nu novostaveb, při rekonstrukci zahrady\ni na firemních a veřejných plochách.',
       heroImage: '/images/groundwork_hero.webp',
-      heroImagePosition: '15% center',
       heroImageAlt: 'Sklápěč s navezenou zeminou',
       photos: [
         { src: '/images/groundwork_photo_1.webp' },

@@ -7,7 +7,7 @@ interface SplitLayoutProps {
   left: ReactNode
   right: ReactNode
   // Pozadí levé poloviny: světle zelená nebo zesvětlená fotka
-  leftBackground?: 'light' | { image: string; position?: string }
+  leftBackground?: 'light' | { image: string }
   // Na mobilu zobrazit pravou polovinu jako první
   reverseOnMobile?: boolean
   sx?: SxProps<Theme>
@@ -37,7 +37,7 @@ export default function SplitLayout({ left, right, leftBackground = 'light', rev
               inset: 0,
               backgroundImage: `url(${leftBackground.image})`,
               backgroundSize: 'cover',
-              backgroundPosition: leftBackground.position ?? 'center',
+              backgroundPosition: 'center',
               opacity: { xs: 0.4, md: 0.25 },
             }}
           />
