@@ -22,7 +22,7 @@ export default function PrivacyPage() {
         sx={{
           flexGrow: 1,
           ml: layout.leftColumn.ml,
-          width: { xs: `calc(100% - 2 * ${mobileGutter})`, md: `min(${fluid(600, 900)}, calc(100% - 2 * ${fluid(11, 278)}))` },
+          width: { xs: `calc(100% - 2 * ${mobileGutter})`, md: `min(${fluid(600, 1200)}, calc(100% - 2 * ${fluid(11, 278)}))` },
           pt: { xs: '300px', md: fluid(260, 330) },
           pb: fluid(80, 140),
         }}
