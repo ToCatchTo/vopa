@@ -439,8 +439,8 @@ const content = {
         removeAria: 'Odebrat fotografii',
       },
       consent: {
-        before: 'Souhlasím se zpracováním ',
-        privacyLink: 'osobních údajů',
+        before: 'Souhlasím se ',
+        privacyLink: 'zpracováním osobních údajů',
         after: '.',
       },
       submit: 'Odeslat poptávku',
