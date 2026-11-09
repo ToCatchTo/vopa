@@ -53,7 +53,7 @@ const contact = {
   phoneHref: 'tel:+420606403490',
   email: 'vopa-pce@seznam.cz',
   emailHref: 'mailto:vopa-pce@seznam.cz',
-  facebookUrl: 'https://www.facebook.com/',
+  facebookUrl: 'https://www.facebook.com/profile.php?id=100063113115934',
 }
 
 const content = {
