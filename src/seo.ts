@@ -81,9 +81,9 @@ const LOCAL_BUSINESS = {
   vatId: 'CZ25946242',
   taxId: '25946242',
   address: {
-    streetAddress: 'Palackého třída 2627',
+    streetAddress: 'Kostnická 116',
     addressLocality: 'Pardubice',
-    postalCode: '530 02',
+    postalCode: '530 06',
     addressCountry: 'CZ',
   },
   areaServed: 'Pardubický kraj',

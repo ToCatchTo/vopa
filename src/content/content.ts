@@ -412,8 +412,8 @@ const content = {
       lines: [
         'Vondráček – VoPa s.r.o.',
         'IČO: 25946242, DIČ: CZ25946242',
-        'Palackého třída 2627, Zelené Předměstí',
-        '530 02 Pardubice',
+        'Kostnická 116',
+        '530 06 Pardubice',
         'Společnost je zapsaná v obchodním rejstříku vedeném Krajským soudem v Hradci Králové, oddíl C, vložka 16526.',
       ],
     },
