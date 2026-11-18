@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /poptavka/odeslano
 
-Sitemap: https://www.example.cz/sitemap.xml
+Sitemap: https://vopa-pce.cz/sitemap.xml

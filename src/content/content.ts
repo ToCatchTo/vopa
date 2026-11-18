@@ -444,6 +444,13 @@ const content = {
         after: '.',
       },
       submit: 'Odeslat poptávku',
+      sending: 'Odesílám…',
+      honeypotLabel: 'Web (nevyplňujte)',
+      errors: {
+        invalid: 'Ve formuláři jsou chyby, opravte prosím vyznačená pole.',
+        rateLimit: 'Odeslali jste víc poptávek za krátkou dobu, zkuste to prosím za pár minut.',
+        server: `Poptávku se nepodařilo odeslat. Zavolejte nám prosím na ${contact.phone} nebo napište na ${contact.email}.`,
+      },
     },
   },
 

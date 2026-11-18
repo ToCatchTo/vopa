@@ -11,11 +11,12 @@ interface PillButtonProps {
   to?: string
   type?: 'button' | 'submit'
   variant?: 'white' | 'green'
+  disabled?: boolean
   sx?: SxProps<Theme>
 }
 
 // Zaoblené tlačítko (odkaz nebo odeslání formuláře)
-export default function PillButton({ label, to, type = 'button', variant = 'white', sx }: PillButtonProps) {
+export default function PillButton({ label, to, type = 'button', variant = 'white', disabled = false, sx }: PillButtonProps) {
   const isWhite = variant === 'white'
   const style: SxProps<Theme> = {
     ...text.button,
@@ -36,6 +37,7 @@ export default function PillButton({ label, to, type = 'button', variant = 'whit
       outline: `3px solid ${isWhite ? colors.white : colors.green}`,
       outlineOffset: '3px',
     },
+    '&:disabled': { opacity: 0.6, cursor: 'default', filter: 'none' },
     ...sx,
   } as SxProps<Theme>
 
@@ -47,7 +49,7 @@ export default function PillButton({ label, to, type = 'button', variant = 'whit
     )
   }
   return (
-    <Box component="button" type={type} sx={style}>
+    <Box component="button" type={type} disabled={disabled} sx={style}>
       {label}
     </Box>
   )

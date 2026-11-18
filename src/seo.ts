@@ -1,9 +1,9 @@
 // SEO texty stránek – titulky, popisky a údaje o firmě pro strukturovaná data.
 import content from '@/content/content'
 
-// Kanonická adresa webu – DOČASNÁ, před spuštěním potvrdit (www vs. bez www).
+// Kanonická adresa webu.
 // Stejná hodnota je i v index.html (og:image), public/robots.txt a scripts/generate-sitemap.mjs.
-export const SITE_ORIGIN = 'https://www.example.cz'
+export const SITE_ORIGIN = 'https://vopa-pce.cz'
 export const BRAND = 'VoPa Vondráček'
 export const TITLE_SEPARATOR = ' – '
 // Výchozí obrázek pro sdílení (1200 × 630)

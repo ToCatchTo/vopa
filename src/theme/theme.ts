@@ -9,6 +9,7 @@ export const colors = {
   grey: '#707070',
   black: '#000000',
   shadow: 'rgba(0, 0, 0, 0.16)',
+  error: '#C62828',
 }
 
 // Overlay zelených boxů v hero sekci

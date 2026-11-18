@@ -3,8 +3,8 @@ import { writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-// Musí odpovídat SITE_ORIGIN v src/seo.ts (DOČASNÁ hodnota)
-const ORIGIN = 'https://www.example.cz'
+// Musí odpovídat SITE_ORIGIN v src/seo.ts
+const ORIGIN = 'https://vopa-pce.cz'
 
 // Veřejné routy z App.tsx
 export const STATIC_PATHS = [
