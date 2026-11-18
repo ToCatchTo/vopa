@@ -20,22 +20,26 @@ export default function HomeHero() {
         pb: { xs: '82px', md: 0 },
       }}
     >
-      <Box
-        component="img"
-        src="/images/home_hero.webp"
-        alt={home.heroImageAlt}
-        fetchPriority="high"
-        sx={{
-          position: 'absolute',
-          top: 0,
-          // Fotka v návrhu přesahuje sekci: 2140 × 1572 posunutá o 220 doleva (sekce 1920 × 981)
-          left: { xs: 0, md: '-11.46%' },
-          width: { xs: '100%', md: '111.46%' },
-          height: { xs: '100%', md: '160.2%' },
-          objectFit: 'cover',
-          objectPosition: { xs: '33% 100%', md: 'center top' },
-        }}
-      />
+      <picture>
+        {/* Na telefonech menší výřez se stejným zobrazením */}
+        <source media="(max-width: 599.95px)" srcSet="/images/home_hero_mobile.webp" />
+        <Box
+          component="img"
+          src="/images/home_hero.webp"
+          alt={home.heroImageAlt}
+          fetchPriority="high"
+          sx={{
+            position: 'absolute',
+            top: 0,
+            // Fotka v návrhu přesahuje sekci: 2140 × 1572 posunutá o 220 doleva (sekce 1920 × 981)
+            left: { xs: 0, md: '-11.46%' },
+            width: { xs: '100%', md: '111.46%' },
+            height: { xs: '100%', md: '160.2%' },
+            objectFit: 'cover',
+            objectPosition: { xs: '33% 100%', md: 'center top' },
+          }}
+        />
+      </picture>
       <HeroBoxes
         variant="home"
         animated

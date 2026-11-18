@@ -57,6 +57,8 @@ export default function PhotoUpload({ photos, onChange, fieldSx, errors = {} }: 
                   pr: photo ? '56px' : undefined,
                   cursor: 'pointer',
                   ...hoverDarken,
+                  // Zvýraznění při zaměření skrytého vstupu klávesnicí
+                  '&:has(input:focus-visible)': { boxShadow: `0 0 0 2px ${colors.green}` },
                   ...(errors[i] && { boxShadow: `0 0 0 2px ${colors.error}` }),
                 } as SxProps<Theme>}
               >

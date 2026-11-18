@@ -70,7 +70,10 @@ export default function MenuDropdown() {
             color: colors.green,
             cursor: 'pointer',
             textAlign: 'left',
+            borderRadius: fluid(15, 31),
             ...hoverDarken,
+            // Obrys dovnitř, aby ho neořízl obal menu
+            '&:focus-visible': { outline: `3px solid ${colors.green}`, outlineOffset: '-3px' },
           }}
         >
           <Box component="span" sx={{ fontSize: fluid(18, 24), whiteSpace: 'nowrap', textDecoration: 'underline', textUnderlineOffset: '3px' }}>

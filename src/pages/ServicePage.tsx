@@ -28,7 +28,7 @@ export default function ServicePage({ service }: ServicePageProps) {
       <Header />
       <Box component="main" sx={layout.main}>
         <SplitLayout
-          leftBackground={{ image: service.heroImage }}
+          leftBackground={{ image: service.heroImage, mobileImage: service.heroImageMobile }}
           sx={{ minHeight: { md: fluid(1500, 2354) } }}
           left={
             <Box sx={{ pt: { xs: '340px', md: fluid(200, 410) }, pb: { xs: '82px', md: 0 } }}>

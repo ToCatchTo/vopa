@@ -1,5 +1,5 @@
 import { useState, type ChangeEvent, type FormEvent } from 'react'
-import { Box, Grid } from '@mui/material'
+import { Box, Grid, useMediaQuery } from '@mui/material'
 import type { SxProps, Theme } from '@mui/material/styles'
 import { Link as RouterLink, useNavigate } from 'react-router-dom'
 import content from '@/content/content'
@@ -15,7 +15,7 @@ import { fluid } from '@/utils/fluid'
 
 type FieldName = keyof typeof content.inquiry.form.fields
 
-// Pole formuláře v pořadí podle mobilního návrhu; twoColumnOrder určuje pořadí ve dvou sloupcích
+// Pole formuláře v pořadí pro jeden sloupec; twoColumnOrder určuje pořadí ve dvou sloupcích
 const fieldConfig: { name: FieldName; type: string; required: boolean; autoComplete?: string; twoColumnOrder: number }[] = [
   { name: 'name', type: 'text', required: true, autoComplete: 'name', twoColumnOrder: 1 },
   { name: 'company', type: 'text', required: false, autoComplete: 'organization', twoColumnOrder: 2 },
@@ -34,6 +34,9 @@ const emptyValues: Record<FieldName, string> = {
   frequency: '',
   description: '',
 }
+
+// Stejná pole seřazená pro rozložení do dvou sloupců
+const twoColumnFields = [...fieldConfig].sort((a, b) => a.twoColumnOrder - b.twoColumnOrder)
 
 // Pole, u kterých se zobrazují chyby z API (ostatní jdou do obecné hlášky)
 const fieldKeys = new Set<string>([...fieldConfig.map((field) => field.name), 'description', 'consent'])
@@ -84,6 +87,10 @@ export default function InquiryForm() {
   const [photoErrors, setPhotoErrors] = useState<Record<number, string[]>>({})
   const [formError, setFormError] = useState<string[]>([])
   const { send, sending } = useSendInquiry()
+  // Dva sloupce jsou na šířkách sm a lg; pořadí v DOM odpovídá zobrazení kvůli klávese Tab
+  const isSmOnly = useMediaQuery((theme: Theme) => theme.breakpoints.between('sm', 'md'), { noSsr: true })
+  const isLgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), { noSsr: true })
+  const fields = isSmOnly || isLgUp ? twoColumnFields : fieldConfig
 
   // Odebrání chyby pole po jeho úpravě
   const clearFieldError = (name: string) =>
@@ -136,8 +143,8 @@ export default function InquiryForm() {
         {form.title}
       </Box>
       <Grid container columnSpacing={fluid(12, 24)} rowSpacing={fluid(12, 23)} sx={{ mt: fluid(20, 33) }}>
-        {fieldConfig.map((field) => (
-          <Grid key={field.name} size={{ xs: 12, sm: 6, md: 12, lg: 6 }} sx={{ order: { xs: 0, sm: field.twoColumnOrder, md: 0, lg: field.twoColumnOrder } }}>
+        {fields.map((field) => (
+          <Grid key={field.name} size={{ xs: 12, sm: 6, md: 12, lg: 6 }}>
             <Box component="label" htmlFor={`inquiry-${field.name}`} sx={visuallyHidden}>
               {form.fields[field.name]}
             </Box>
@@ -158,7 +165,7 @@ export default function InquiryForm() {
             <FieldError id={`inquiry-${field.name}-error`} messages={fieldErrors[field.name]} />
           </Grid>
         ))}
-        <Grid size={12} sx={{ order: { xs: 0, sm: 7, md: 0, lg: 7 } }}>
+        <Grid size={12}>
           <Box component="label" htmlFor="inquiry-description" sx={visuallyHidden}>
             {form.fields.description}
           </Box>
@@ -176,7 +183,7 @@ export default function InquiryForm() {
           />
           <FieldError id="inquiry-description-error" messages={fieldErrors.description} />
         </Grid>
-        <Grid size={12} sx={{ order: { xs: 0, sm: 8, md: 0, lg: 8 }, mt: { xs: '18px', md: 0 } }}>
+        <Grid size={12} sx={{ mt: { xs: '18px', md: 0 } }}>
           <PhotoUpload photos={photos} onChange={onPhotosChange} fieldSx={inputSx} errors={photoErrors} />
           <FieldError id="inquiry-photos-error" messages={fieldErrors.photos} />
         </Grid>

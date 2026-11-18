@@ -25,6 +25,8 @@ export interface ServiceContent {
   title: string
   intro: string
   heroImage: string
+  // Menší verze fotky pro telefony
+  heroImageMobile: string
   heroImageAlt: string
   photos: ServicePhoto[]
   photoAlt: string
@@ -163,6 +165,7 @@ const content = {
       intro:
         'Pravidelně udržovaná zeleň reprezentuje\nobec i firmu a ušetří vám náklady na\npozdější nápravu zanedbaných ploch.\nPečujeme o veřejnou zeleň, firemní areály\ni soukromé zahrady v Pardubickém kraji\nuž od roku 1994.',
       heroImage: '/images/maintenance_hero.webp',
+      heroImageMobile: '/images/maintenance_hero_mobile.webp',
       heroImageAlt: 'Sekání trávníku zahradním traktorem',
       photos: [
         { src: '/images/maintenance_photo_1.webp', position: '50% 0%' },
@@ -217,6 +220,7 @@ const content = {
       intro:
         'Zdravý trávník a upravené živé ploty vyžadují\npravidelnou a odbornou péči. Zahradní práce\nprovádíme jednorázově i v rámci pravidelného\nservisu na zahradách, firemních pozemcích\ni veřejných plochách.',
       heroImage: '/images/gardening_hero.webp',
+      heroImageMobile: '/images/gardening_hero_mobile.webp',
       heroImageAlt: 'Sekání trávy zahradním traktorem',
       photos: [
         { src: '/images/gardening_photo_1.webp', position: '50% 43%' },
@@ -262,6 +266,7 @@ const content = {
       intro:
         'Kácení stromů v Pardubicích a okolí.\nNemocný, poškozený nebo nevhodně rostoucí\nstrom ohrožuje majetek i bezpečnost lidí.\nStromy kácíme a prořezáváme bezpečně,\ns vlastní mechanizací a včetně kompletního\núklidu – od zahrad rodinných domů po\nveřejná prostranství a firemní areály.',
       heroImage: '/images/tree_felling_hero.webp',
+      heroImageMobile: '/images/tree_felling_hero_mobile.webp',
       heroImageAlt: 'Arborista při prořezávání stromu',
       photos: [
         { src: '/images/tree_felling_photo_1.webp', position: '50% 14%' },
@@ -315,6 +320,7 @@ const content = {
       intro:
         'Terénní úpravy zahrad a pozemků v Pardubicích.\nKvalitní trávník i záhon začíná správně\npřipraveným terénem. Pozemek vyrovnáme,\npřipravíme plochy pro výsadbu a navezeme\npotřebnou zeminu nebo substrát –\nu novostaveb, při rekonstrukci zahrady\ni na firemních a veřejných plochách.',
       heroImage: '/images/groundwork_hero.webp',
+      heroImageMobile: '/images/groundwork_hero_mobile.webp',
       heroImageAlt: 'Sklápěč s navezenou zeminou',
       photos: [
         { src: '/images/groundwork_photo_1.webp' },
@@ -354,6 +360,7 @@ const content = {
       intro:
         'Odvoz odpadu, údržba hřišť a palivové dřevo.\nNaše služby doplňujeme o práce, které s péčí\no zeleň a pozemky přímo souvisejí. Díky tomu\nvám zajistíme vše potřebné od jednoho\ndodavatele.',
       heroImage: '/images/other_services_hero.webp',
+      heroImageMobile: '/images/other_services_hero_mobile.webp',
       heroImageAlt: 'Vysypávání mulčovací kůry ze sklápěče',
       photos: [
         { src: '/images/other_services_photo_1.webp', position: '50% 40%' },
@@ -567,7 +574,7 @@ const content = {
   footer: {
     lines: ['Rádi s vámi probereme vaše požadavky.', 'Staráme se o zeleň v Pardubicích a Pardubickém kraji.'],
     madeBy: 'tvoříme weby s radostí',
-    madeByMobile: 'copyright 2025, vytvoříme web i vám',
+    madeByMobile: `copyright ${new Date().getFullYear()}, vytvoříme web i vám`,
     madeByUrl: 'https://www.matfix.cz',
     madeByAria: 'Matfix – tvorba webů',
   },
